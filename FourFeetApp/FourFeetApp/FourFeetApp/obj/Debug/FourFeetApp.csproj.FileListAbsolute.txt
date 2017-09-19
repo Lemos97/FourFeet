@@ -1,0 +1,17 @@
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\FourFeetApp.dll
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\FourFeetApp.pdb
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\Xamarin.Forms.Core.pdb
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\Xamarin.Forms.Platform.pdb
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\Xamarin.Forms.Xaml.pdb
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\obj\Debug\FourFeetApp.csproj.CoreCompileInputs.cache
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\obj\Debug\FourFeetApp.MainPage.xaml.g.cs
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\obj\Debug\FourFeetApp.App.xaml.g.cs
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\obj\Debug\FourFeetApp.dll
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\obj\Debug\FourFeetApp.pdb
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\obj\Debug\FourFeetApp.csprojResolveAssemblyReference.cache
+C:\Users\Lemos\Dropbox\Repositories\FourFeet\FourFeetApp\FourFeetApp\FourFeetApp\obj\Debug\FourFeetApp.WelcomeScreen.xaml.g.cs
