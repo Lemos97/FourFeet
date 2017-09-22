@@ -188,6 +188,18 @@ csx/
 ecf/
 rcf/
 
+
+**/*.Droid/**/[Rr]esource.[Dd]esigner.cs
+**/*.Android/**/[Rr]esource.[Dd]esigner.cs
+**/Android/**/[Rr]esource.[Dd]esigner.cs
+
+*/bin/*
+*/obj/*
+*/*/bin/*
+*/*/obj/*
+*/*/*/bin/*
+*/*/*/obj/*
+
 # Windows Store app package directories and files
 AppPackages/
 BundleArtifacts/
@@ -303,3 +315,5 @@ __pycache__/
 
 # OpenCover UI analysis results
 OpenCover/
+
+/FourFeet/FourFeetApp/.vs/FourFeetApp/v15/.suo
