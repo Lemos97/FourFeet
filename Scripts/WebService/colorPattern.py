@@ -76,20 +76,33 @@ def random_color_random_strip(sleep):
 
 
 def rookie():
-    for i in range(0, 15):
+    for i in range(0, 10):
+        random_color_random_strip(2.5)
+    for i in range(0, 10):
+        random_color_random_strip(2.2)
+    for i in range(0, 10):
         random_color_random_strip(2)
+
     return 2 * '#' + ' rookie ended ' + 2 * '#'
 
 
 def intermediate():
-    for i in range(0, 15):
+    for i in range(0, 10):
+        random_color_random_strip(1.5)
+    for i in range(0, 10):
+        random_color_random_strip(1.2)
+    for i in range(0, 10):
         random_color_random_strip(1)
     return 2 * '#' + ' intermediate ended ' + 2 * '#'
 
 
 def advanced():
-    for i in range(1, 15):
+    for i in range(1, 10):
         random_color_random_strip(float(.5))
+    for i in range(1, 10):
+        random_color_random_strip(float(.4))
+    for i in range(1, 10):
+        random_color_random_strip(float(.3))
     return 2 * '#' + ' advanced ended ' + 2 * '#'
 
 
