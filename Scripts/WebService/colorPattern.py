@@ -41,7 +41,6 @@ def random_color():
 
 
 def random_strip():
-
     #   trying more randomness doing a three randoms of random of a list
     rand = [choice(list(strips)) for i in range(0, 3)]
     rand_of_rands = choice(rand)
@@ -49,10 +48,9 @@ def random_strip():
     return strip
 
 
-#   selecting the random strip and each led chooses a random number from 0 to 255
-#   (out of a list of 15 numbers)
 def random_color_random_strip(sleep):
-
+    #   selecting the random strip and each led chooses a random number from 0 to 255
+    #   (out of a list of 15 numbers)
     s = random_strip()
     if len(done_strips) is 0:
         pi.set_PWM_dutycycle(int(s['strip'].get('R')), choice(random_color()))
@@ -78,36 +76,21 @@ def random_color_random_strip(sleep):
 
 
 def rookie():
-    print(20*'#')
-    print(2 * '#' + ' rookie started ' + 2*'#')
-    print(20*'#')
     for i in range(0, 15):
         random_color_random_strip(2)
-    print(20 * '#')
-    print(2 * '#' + ' rookie   ended ' + 2 * '#')
-    print(20 * '#')
+    return 2 * '#' + ' rookie ended ' + 2 * '#'
 
 
 def intermediate():
-    print(28 * '#')
-    print(2 * '#' + ' intermediate started ' + 2 * '#')
-    print(28 * '#')
     for i in range(0, 15):
         random_color_random_strip(1)
-    print(28 * '#')
-    print(2 * '#' + ' intermediate   ended ' + 2 * '#')
-    print(28 * '#')
+    return 2 * '#' + ' intermediate ended ' + 2 * '#'
 
 
 def advanced():
-    print(23 * '#')
-    print(2 * '#' + ' advanced started ' + 2 * '#')
-    print(23 * '#')
     for i in range(1, 15):
         random_color_random_strip(float(.5))
-    print(23 * '#')
-    print(2 * '#' + ' advanced   ended ' + 2 * '#')
-    print(23 * '#')
+    return 2 * '#' + ' advanced ended ' + 2 * '#'
 
 
 # if __name__ == "__main__":
@@ -169,5 +152,7 @@ def advanced():
 
 def main():
     pass
+
+
 if __name__ == '__main__':
     main()
