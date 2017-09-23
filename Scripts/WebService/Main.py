@@ -1,33 +1,24 @@
-from flask import Flask, render_template, request
-# from colorPattern import *
+from flask import Flask, request
+from colorPattern import colorPattern
+
 # from thread import start_new_thread
 
 app = Flask(__name__)
 
 
+@app.route('/')
 @app.route('/exercise', methods=['GET'])
 def level():
     exc_level = request.args.get('level')
     if exc_level:
         if exc_level == 'rookie':
-            print('rookie level')
-            # rookie()
+            colorPattern.rookie()
         elif exc_level == 'intermediate':
-            print('intermediate level')
-            # intermediate()
+            colorPattern.intermediate()
         elif exc_level == 'advanced':
-            print('advanced level')
-            # advanced()
+            colorPattern.advanced()
         else:
             return 404
-
-
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     if request.method == 'POST':
-#         do_the_login()
-#     else:
-#         show_the_login_form()
 
 
 if __name__ == "__main__":
