@@ -29,7 +29,8 @@ strips = dict({
 
 def random_color():
     colors = []
-    for i in range(0, 15):
+    #   getting a list of 15 colors
+    for r in range(0, 15):
         x = randint(0, 255)
         colors.append(x)
     return colors
@@ -37,18 +38,19 @@ def random_color():
 
 def random_strip():
 
-    rand = choice(list(strips))
-    strip = dict(strip=strips[str(rand)])
+    #   trying more randomness doing a three randoms of random of a list
+    rand = [list(choice(list(strips))) for i in range(0, 3)]
+    rand_of_rands = choice(rand)
+    strip = dict(strip=strips[str(rand_of_rands)])
     return strip
 
 
 def random_color_random_strip(sleep):
-    c = random_color()
     s = random_strip()
-
-    pi.set_PWM_dutycycle(int(s['strip'].get('R')), choice(c))
-    pi.set_PWM_dutycycle(int(s['strip'].get('G')), choice(c))
-    pi.set_PWM_dutycycle(int(s['strip'].get('B')), choice(c))
+    #   selecting the random strip and each led chooses a random number from 0 to 255(out of a list of 15 numbers)
+    pi.set_PWM_dutycycle(int(s['strip'].get('R')), choice(random_color()))
+    pi.set_PWM_dutycycle(int(s['strip'].get('G')), choice(random_color()))
+    pi.set_PWM_dutycycle(int(s['strip'].get('B')), choice(random_color()))
     time.sleep(sleep)
     pi.set_PWM_dutycycle(int(s['strip'].get('R')), 0)
     pi.set_PWM_dutycycle(int(s['strip'].get('G')), 0)
@@ -60,7 +62,7 @@ if __name__ == "__main__":
 
     try:
         for i in range(1, 15):
-            random_color_random_strip(float(1/2))
+            random_color_random_strip(1)
 
     except KeyboardInterrupt:
         pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), 0)
