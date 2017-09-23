@@ -25,6 +25,7 @@ strips = dict({
             'B': 20
         }
     })
+done_strips = []
 
 
 def random_color():
@@ -46,12 +47,13 @@ def random_strip():
 
 
 def random_color_random_strip(sleep):
-    done_strips = []
     s = random_strip()
     if len(done_strips) == 0:
         pass
     else:
-        if done_strips[-1]['strip'].get('R') == s['strip'].get('R'):
+        print(done_strips[-1]['strip'].get('R') == s['strip'].get('R'), s['strip'].get('R'))
+        print(done_strips[-2]['strip'].get('R') == s['strip'].get('R'), s['strip'].get('R'))
+        if done_strips[-1]['strip'].get('R') == s['strip'].get('R') and done_strips[-2]['strip'].get('R') == s['strip'].get('R') :
             random_color_random_strip(sleep)
 
     #   selecting the random strip and each led chooses a random number from 0 to 255(out of a list of 15 numbers)
@@ -62,7 +64,7 @@ def random_color_random_strip(sleep):
     pi.set_PWM_dutycycle(int(s['strip'].get('R')), 0)
     pi.set_PWM_dutycycle(int(s['strip'].get('G')), 0)
     pi.set_PWM_dutycycle(int(s['strip'].get('B')), 0)
-
+    print('appended')
     done_strips.append(s)
 
 
