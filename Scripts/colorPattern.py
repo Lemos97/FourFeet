@@ -46,7 +46,14 @@ def random_strip():
 
 
 def random_color_random_strip(sleep):
+    done_strips = []
     s = random_strip()
+    if len(done_strips) == 0:
+        pass
+    else:
+        if done_strips[-1]['strip'].get('R') == s['strip'].get('R'):
+            random_color_random_strip(sleep)
+
     #   selecting the random strip and each led chooses a random number from 0 to 255(out of a list of 15 numbers)
     pi.set_PWM_dutycycle(int(s['strip'].get('R')), choice(random_color()))
     pi.set_PWM_dutycycle(int(s['strip'].get('G')), choice(random_color()))
@@ -56,19 +63,22 @@ def random_color_random_strip(sleep):
     pi.set_PWM_dutycycle(int(s['strip'].get('G')), 0)
     pi.set_PWM_dutycycle(int(s['strip'].get('B')), 0)
 
+    done_strips.append(s)
+
 
 def rookie():
     for i in range(1, 15):
         random_color_random_strip(2)
 
+
 def intermediate():
     for i in range(1, 15):
         random_color_random_strip(1)
 
+
 def advanced():
     for i in range(1, 15):
         random_color_random_strip(float(.5))
-
 
 
 if __name__ == "__main__":
