@@ -58,21 +58,15 @@ def random_strip():
     return strip
 
 
-def random_color_random_strip(timesleep):
+def random_color_random_strip():
     c = random_color()
     s = random_strip()
     print(s)
     print(c)
     print(s['strip'].get('R'))
-    pi.set_PWM_dutycycle(int(s['strip'].get('R')), c[0])
-    pi.set_PWM_dutycycle(int(s['strip'].get('G')), c[1])
-    pi.set_PWM_dutycycle(int(s['strip'].get('B')), c[2])
-    time.sleep(timesleep)
-    pi.set_PWM_dutycycle(int(s['strip'].get('R')), 0)
-    pi.set_PWM_dutycycle(int(s['strip'].get('G')), 0)
-    pi.set_PWM_dutycycle(int(s['strip'].get('B')), 0)
-
- 
+    pi.set_PWM_dutycycle(int(s.get('R')), c[0])
+    pi.set_PWM_dutycycle(int(s.get('G')), c[1])
+    pi.set_PWM_dutycycle(int(s.get('B')), c[2])
 
 
 def loop():
@@ -151,8 +145,7 @@ if __name__ == "__main__":
 
     try:
 #        while True:
-	for i in range(1,15):
-         random_color_random_strip(1)
+         random_color_random_strip()
             # loop()
 
     except KeyboardInterrupt:
