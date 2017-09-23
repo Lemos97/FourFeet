@@ -75,40 +75,73 @@ def random_color_random_strip(sleep):
             done_strips.append(s)
 
 
-def rookie():
-    for i in range(0, 10):
-        random_color_random_strip(2.5)
-    time.sleep(2)
-    for i in range(0, 10):
-        random_color_random_strip(2.2)
-    time.sleep(2)
-    for i in range(0, 10):
-        random_color_random_strip(2)
-
+def rookie(level):
+    if level:
+        if level == 1:
+            for i in range(0, 10):
+                random_color_random_strip(2.5)
+        elif level == 2:
+            for i in range(0, 10):
+                random_color_random_strip(2.2)
+        elif level == 3:
+            for i in range(0, 10):
+                random_color_random_strip(2)
+    else:
+        for i in range(0, 10):
+            random_color_random_strip(2.5)
+        time.sleep(2)
+        for i in range(0, 10):
+            random_color_random_strip(2.2)
+        time.sleep(2)
+        for i in range(0, 10):
+            random_color_random_strip(2)
     return 2 * '#' + ' rookie ended ' + 2 * '#'
 
 
-def intermediate():
-    for i in range(0, 10):
-        random_color_random_strip(1.5)
-    time.sleep(2)
-    for i in range(0, 10):
-        random_color_random_strip(1.2)
-    time.sleep(2)
-    for i in range(0, 10):
-        random_color_random_strip(1)
+def intermediate(level):
+
+    if level:
+        if level == 1:
+            for i in range(0, 10):
+                random_color_random_strip(1.5)
+        elif level == 2:
+            for i in range(0, 10):
+                random_color_random_strip(1.2)
+        elif level == 3:
+            for i in range(0, 10):
+                random_color_random_strip(1)
+    else:
+        for i in range(0, 10):
+            random_color_random_strip(1.5)
+        time.sleep(2)
+        for i in range(0, 10):
+            random_color_random_strip(1.2)
+        time.sleep(2)
+        for i in range(0, 10):
+            random_color_random_strip(1)
     return 2 * '#' + ' intermediate ended ' + 2 * '#'
 
 
-def advanced():
-    for i in range(1, 10):
-        random_color_random_strip(float(.5))
-    time.sleep(2)
-    for i in range(1, 10):
-        random_color_random_strip(float(.4))
-    time.sleep(2)
-    for i in range(1, 10):
-        random_color_random_strip(float(.3))
+def advanced(level):
+    if level:
+        if level == 1:
+            for i in range(0, 10):
+                random_color_random_strip(float(.5))
+        elif level == 2:
+            for i in range(0, 10):
+                random_color_random_strip(float(.4))
+        elif level == 3:
+            for i in range(0, 10):
+                random_color_random_strip(float(.3))
+    else:
+        for i in range(0, 10):
+            random_color_random_strip(float(.5))
+        time.sleep(2)
+        for i in range(0, 10):
+            random_color_random_strip(float(.4))
+        time.sleep(2)
+        for i in range(0, 10):
+            random_color_random_strip(float(.3))
     return 2 * '#' + ' advanced ended ' + 2 * '#'
 
 

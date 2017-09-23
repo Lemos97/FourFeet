@@ -16,21 +16,21 @@ def level():
     # ip:5000/exercise?level=intermediate ||
     # ip:5000/exercise?level=advanced
     if exc_level:
-        if exc_level == 'rookie':
-            return rookie()
-        elif exc_level == 'intermediate':
-            return intermediate()
-        elif exc_level == 'advanced':
-            return advanced()
+        if exc_level[0, -1] == 'rookie':
+            return rookie(exc_level[-1])
+        elif exc_level[0, -1] == 'intermediate':
+            return intermediate(exc_level[-1])
+        elif exc_level[0, -1] == 'advanced':
+            return advanced(exc_level[-1])
 
     # ip:5000/exercise?progressive=yes || ip:5000/exercise?progressive=Yes
     if progressive:
         if progressive == 'yes' or progressive == 'Yes':
-            rookie()
+            rookie(None)
             time.sleep(5)
-            intermediate()
+            intermediate(None)
             time.sleep(7)
-            advanced()
+            advanced(None)
             return "## Progressive mode ended ##"
 
     return 404
