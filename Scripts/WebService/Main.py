@@ -1,5 +1,6 @@
 from flask import Flask, request
-from colorPattern import colorPattern
+
+from WebService.colorPattern import colorPattern
 
 # from thread import start_new_thread
 
