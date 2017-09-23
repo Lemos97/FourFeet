@@ -39,7 +39,7 @@ def random_color():
 def random_strip():
 
     #   trying more randomness doing a three randoms of random of a list
-    rand = [list(choice(list(strips))) for i in range(0, 3)]
+    rand = [choice(list(strips)) for i in range(0, 3)]
     rand_of_rands = choice(rand)
     strip = dict(strip=strips[str(rand_of_rands)])
     return strip
@@ -57,12 +57,59 @@ def random_color_random_strip(sleep):
     pi.set_PWM_dutycycle(int(s['strip'].get('B')), 0)
 
 
+def rookie():
+    for i in range(1, 15):
+        random_color_random_strip(3)
+
+def intermediate():
+    for i in range(1, 15):
+        random_color_random_strip(2)
+
+def advanced():
+    for i in range(1, 15):
+        random_color_random_strip(float(3/4))
+
+
+
 if __name__ == "__main__":
     pi = pigpio.pi()
 
     try:
-        for i in range(1, 15):
-            random_color_random_strip(1)
+        print(20*'#')
+        print(6*'-'+'FourFeet'+6*'-')
+        print('1.- Rookie')
+        print('2.- Intermediate')
+        print('3.- Advanced')
+        print('4.- Exit')
+        print(20*'#')
+
+        level = input('Which level you wanna try out?')
+
+        if level is 1:
+            print('Rookie it is')
+            rookie()
+        elif level is 2:
+            print('Intermediate it is')
+            intermediate()
+        elif level is 3:
+            print('Advanced it is')
+            advanced()
+        else:
+            pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), 0)
+            pi.set_PWM_dutycycle(int(strips['strip2'].get('R')), 0)
+            pi.set_PWM_dutycycle(int(strips['strip3'].get('R')), 0)
+            pi.set_PWM_dutycycle(int(strips['strip4'].get('R')), 0)
+
+            pi.set_PWM_dutycycle(int(strips['strip1'].get('G')), 0)
+            pi.set_PWM_dutycycle(int(strips['strip2'].get('G')), 0)
+            pi.set_PWM_dutycycle(int(strips['strip3'].get('G')), 0)
+            pi.set_PWM_dutycycle(int(strips['strip4'].get('G')), 0)
+
+            pi.set_PWM_dutycycle(int(strips['strip1'].get('B')), 0)
+            pi.set_PWM_dutycycle(int(strips['strip2'].get('B')), 0)
+            pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), 0)
+            pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), 0)
+            pi.stop()
 
     except KeyboardInterrupt:
         pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), 0)
