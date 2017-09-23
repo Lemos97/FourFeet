@@ -53,18 +53,26 @@ def random_strip():
         }
     })
 
-    rand = random.choice(list(strips))
+    rand = choice(list(strips))
     strip = dict(strip=strips[str(rand)])
-    return strips
+    return strip
 
 
-def random_color_random_strip():
+def random_color_random_strip(timesleep):
     c = random_color()
     s = random_strip()
+    print(s)
+    print(c)
+    print(s['strip'].get('R'))
+    pi.set_PWM_dutycycle(int(s['strip'].get('R')), c[0])
+    pi.set_PWM_dutycycle(int(s['strip'].get('G')), c[1])
+    pi.set_PWM_dutycycle(int(s['strip'].get('B')), c[2])
+    time.sleep(timesleep)
+    pi.set_PWM_dutycycle(int(s['strip'].get('R')), 0)
+    pi.set_PWM_dutycycle(int(s['strip'].get('G')), 0)
+    pi.set_PWM_dutycycle(int(s['strip'].get('B')), 0)
 
-    pi.set_PWM_dutycycle(int(s.get('R')), c[0])
-    pi.set_PWM_dutycycle(int(s.get('G')), c[1])
-    pi.set_PWM_dutycycle(int(s.get('B')), c[2])
+ 
 
 
 def loop():
@@ -142,8 +150,9 @@ if __name__ == "__main__":
     pi = pigpio.pi()
 
     try:
-        while True:
-            random_color_random_strip()
+#        while True:
+	for i in range(1,15):
+         random_color_random_strip(1)
             # loop()
 
     except KeyboardInterrupt:
