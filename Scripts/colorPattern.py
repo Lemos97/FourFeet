@@ -59,15 +59,15 @@ def random_color_random_strip(sleep):
 
 def rookie():
     for i in range(1, 15):
-        random_color_random_strip(3)
+        random_color_random_strip(2)
 
 def intermediate():
     for i in range(1, 15):
-        random_color_random_strip(2)
+        random_color_random_strip(1)
 
 def advanced():
     for i in range(1, 15):
-        random_color_random_strip(float(3/4))
+        random_color_random_strip(float(.5))
 
 
 
