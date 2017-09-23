@@ -167,3 +167,7 @@ def advanced():
 #         pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), 0)
 #         pi.stop()
 
+def main():
+    pass
+if __name__ == '__main__':
+    main()

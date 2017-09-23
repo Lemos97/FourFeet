@@ -1,6 +1,6 @@
 from flask import Flask, request
 
-from WebService.colorPattern import colorPattern
+from colorPattern import rookie, intermediate, advanced
 
 # from thread import start_new_thread
 
@@ -13,11 +13,11 @@ def level():
     exc_level = request.args.get('level')
     if exc_level:
         if exc_level == 'rookie':
-            colorPattern.rookie()
+            rookie()
         elif exc_level == 'intermediate':
-            colorPattern.intermediate()
+            intermediate()
         elif exc_level == 'advanced':
-            colorPattern.advanced()
+            advanced()
         else:
             return 404
 
