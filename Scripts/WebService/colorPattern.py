@@ -99,7 +99,6 @@ def rookie(level):
 
 
 def intermediate(level):
-
     if level:
         if level == 'One':
             for i in range(0, 10):
