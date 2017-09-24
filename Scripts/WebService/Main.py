@@ -2,7 +2,7 @@
 from flask import Flask, request
 import time
 import json
-from colorPattern import rookie, intermediate, advanced
+from colorPattern import rookie, intermediate, advanced, loop
 from account import check_if_account, make_register
 
 # from thread import start_new_thread
@@ -33,6 +33,7 @@ def colors():
     exc_pattern = request.args.get('pattern')
     exc_level = request.args.get('level', type=int)
     progressive = request.args.get('progressive')
+    infinite = request.args.get('infinite')
     # ip:5000/exercise?level=rookieOne(Two/Thr) ||
     # ip:5000/exercise?level=intermediateOne(Two/Thr) ||
     # ip:5000/exercise?level=advancedOne(Two/Thr)
@@ -53,6 +54,10 @@ def colors():
             time.sleep(7)
             advanced(None)
             return "## Progressive mode ended ##"
+
+    if infinite:
+        if infinite == 'yes' or infinite == 'Yes':
+            loop()
 
     return 404
 
