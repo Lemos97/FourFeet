@@ -1,7 +1,8 @@
+# coding=utf-8
 from flask import Flask, request
 import time
 from colorPattern import rookie, intermediate, advanced
-from login import check_if_account, make_register
+from account import check_if_account, make_register
 
 # from thread import start_new_thread
 
@@ -40,20 +41,21 @@ def level():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     # if request.method == 'GET':
-    account = check_if_account()
-    if account:
-        return 'O utilizador logado é ' + account.name
+    account = request.args.get('check')
+    check = check_if_account()
+    if account == 'yes':
+        if not check:
+            return 'There is no user registered.'
+        return 'The user logged is ' + check['name']
     else:
         name = request.args.get('name')
-        age = request.args.get('age')
-        predominant_side = request.args.get('side')
+        age = request.args.get('age', type=int)
+        predominant_side = request.args.get('side', default='Right')
         if name and age and predominant_side:
-            try:
-                make_register(name, age, predominant_side)
-            except IOError:
-                return 404
-            finally:
-                return login()
+            if check:
+                return "There is already an account registered"
+            else:
+                return make_register(name, age, predominant_side)
     return 404
 
 
