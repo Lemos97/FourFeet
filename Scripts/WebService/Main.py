@@ -11,8 +11,25 @@ app = Flask(__name__)
 
 
 @app.route('/')
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    try:
+        check = check_if_account()
+        if not check:
+            #   ip/login?name=Example&age=99&side=Right to register account
+            name = request.args.get('name')
+            age = request.args.get('age', type=int)
+            predominant_side = request.args.get('side', default='Right')
+            if name and age and predominant_side:
+                return make_register(name, age, predominant_side)
+        else:
+            return json.dumps(check)
+    except ConnectionError:
+        return 404
+
+
 @app.route('/exercise', methods=['GET'])
-def level():
+def colors():
     exc_pattern = request.args.get('pattern')
     exc_level = request.args.get('level', type=int)
     progressive = request.args.get('progressive')
@@ -38,23 +55,6 @@ def level():
             return "## Progressive mode ended ##"
 
     return 404
-
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    try:
-        check = check_if_account()
-        if not check:
-            #   ip/login?name=Example&age=99&side=Right to register account
-            name = request.args.get('name')
-            age = request.args.get('age', type=int)
-            predominant_side = request.args.get('side', default='Right')
-            if name and age and predominant_side:
-                return make_register(name, age, predominant_side)
-        else:
-            return json.dumps(check)
-    except ConnectionError:
-        return 404
 
 
 if __name__ == "__main__":
