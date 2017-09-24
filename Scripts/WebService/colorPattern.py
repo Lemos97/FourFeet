@@ -77,13 +77,13 @@ def random_color_random_strip(sleep):
 
 def rookie(level):
     if level:
-        if level == 1:
+        if level == 'One':
             for i in range(0, 10):
                 random_color_random_strip(2.5)
-        elif level == 2:
+        elif level == 'Two':
             for i in range(0, 10):
                 random_color_random_strip(2.2)
-        elif level == 3:
+        elif level == 'Thr':
             for i in range(0, 10):
                 random_color_random_strip(2)
     else:
@@ -101,13 +101,13 @@ def rookie(level):
 def intermediate(level):
 
     if level:
-        if level == 1:
+        if level == 'One':
             for i in range(0, 10):
                 random_color_random_strip(1.5)
-        elif level == 2:
+        elif level == 'Two':
             for i in range(0, 10):
                 random_color_random_strip(1.2)
-        elif level == 3:
+        elif level == 'Thr':
             for i in range(0, 10):
                 random_color_random_strip(1)
     else:
@@ -124,13 +124,13 @@ def intermediate(level):
 
 def advanced(level):
     if level:
-        if level == 1:
+        if level == 'One':
             for i in range(0, 10):
                 random_color_random_strip(float(.5))
-        elif level == 2:
+        elif level == 'Two':
             for i in range(0, 10):
                 random_color_random_strip(float(.4))
-        elif level == 3:
+        elif level == 'Thr':
             for i in range(0, 10):
                 random_color_random_strip(float(.3))
     else:
