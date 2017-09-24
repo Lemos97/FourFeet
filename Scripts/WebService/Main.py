@@ -2,7 +2,7 @@
 from flask import Flask, request
 import time
 import json
-from colorPattern import rookie, intermediate, advanced, loop
+from colorPattern import rookie, intermediate, advanced, loop, welcome_pattern
 from account import check_if_account, make_register
 
 # from thread import start_new_thread
@@ -11,6 +11,10 @@ app = Flask(__name__)
 
 
 @app.route('/')
+def home():
+    welcome_pattern()
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     try:
@@ -21,8 +25,10 @@ def login():
             age = request.args.get('age', type=int)
             predominant_side = request.args.get('side', default='Right')
             if name and age and predominant_side:
-                return make_register(name, age, predominant_side)
+
+                return make_register(name, age, predominant_side), welcome_pattern()
         else:
+            welcome_pattern()
             return json.dumps(check)
     except ConnectionError:
         return 404
@@ -30,13 +36,13 @@ def login():
 
 @app.route('/exercise', methods=['GET'])
 def colors():
-    exc_pattern = request.args.get('pattern')
+    exc_pattern = request.args.get('difficulty')
     exc_level = request.args.get('level', type=int)
     progressive = request.args.get('progressive')
     infinite = request.args.get('infinite')
-    # ip:5000/exercise?level=rookieOne(Two/Thr) ||
-    # ip:5000/exercise?level=intermediateOne(Two/Thr) ||
-    # ip:5000/exercise?level=advancedOne(Two/Thr)
+    # ip:5000/exercise?difficulty=rookie%level=1(2,3) ||
+    # ip:5000/exercise?difficulty=intermediate&level=1(2,3) ||
+    # ip:5000/exercise?difficulty=advanced&level=1(2,3)
     if exc_level:
         if exc_pattern == 'rookie':
             return rookie(exc_level)

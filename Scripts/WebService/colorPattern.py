@@ -164,7 +164,26 @@ def advanced(level):
 
 def loop():
     while True:
-        random_color_random_strip(2)
+        random_color_random_strip(float(.8))
+
+
+def welcome_pattern():
+    for i in range(0, 4):
+        pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip2'].get('R')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip3'].get('R')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip4'].get('R')), choice(random_color()))
+
+        pi.set_PWM_dutycycle(int(strips['strip1'].get('G')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip2'].get('G')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip3'].get('G')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip4'].get('G')), choice(random_color()))
+
+        pi.set_PWM_dutycycle(int(strips['strip1'].get('B')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip2'].get('B')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), choice(random_color()))
+        time.sleep(.5)
 
 # if __name__ == "__main__":
 #
