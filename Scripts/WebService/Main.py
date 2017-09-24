@@ -16,11 +16,11 @@ def level():
     # ip:5000/exercise?level=intermediate ||
     # ip:5000/exercise?level=advanced
     if exc_level:
-        if exc_level[0, -3] == 'rookie':
+        if exc_level[0:-3] == 'rookie':
             return rookie(exc_level[-3:])
-        elif exc_level[0, -3] == 'intermediate':
+        elif exc_level[0:-3] == 'intermediate':
             return intermediate(exc_level[-3:])
-        elif exc_level[0, -3] == 'advanced':
+        elif exc_level[0:-3] == 'advanced':
             return advanced(exc_level[-3:])
 
     # ip:5000/exercise?progressive=yes || ip:5000/exercise?progressive=Yes
