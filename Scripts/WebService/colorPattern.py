@@ -166,7 +166,6 @@ def advanced(level):
 def loop():
     while datetime.datetime.now() < (datetime.datetime.now() + datetime.timedelta(seconds=600)):
         random_color_random_strip(float(.8))
-        time.sleep(.8)
 
 
 def welcome_pattern():
