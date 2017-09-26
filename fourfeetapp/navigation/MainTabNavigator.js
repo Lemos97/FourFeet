@@ -45,15 +45,24 @@ export default TabNavigator(
         return (
           <Ionicons
             name={iconName}
-            size={28}
+            size={25}
             style={{ marginBottom: -3 }}
             color={focused ? Colors.tabIconSelected : Colors.tabIconDefault}
           />
         );
       },
     }),
-    // tabBarComponent: TabBarTop,
-    // tabBarPosition: 'top',
+    tabBarOptions: {
+      activeTintColor: "white",
+      inactiveTintColor: "#48BBEC",
+      activeBackgroundColor: "white",
+      inactiveBackgroundColor: "#48BBEC",
+      style: {
+        backgroundColor: "#48BBEC"
+      }
+    },
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: true,
   }
