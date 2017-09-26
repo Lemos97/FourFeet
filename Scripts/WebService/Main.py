@@ -23,7 +23,7 @@ def login():
             #   ip/login?name=Example&age=99&side=Right to register account
             name = request.args.get('name')
             age = request.args.get('age', type=int)
-            predominant_side = request.args.get('side', default='Right')
+            predominant_side = request.args.get('side', default='Ambidextrous')
             if name and age and predominant_side:
 
                 return make_register(name, age, predominant_side), welcome_pattern()
@@ -43,13 +43,13 @@ def colors():
     # ip:5000/exercise?difficulty=rookie%level=1(2,3) ||
     # ip:5000/exercise?difficulty=intermediate&level=1(2,3) ||
     # ip:5000/exercise?difficulty=advanced&level=1(2,3)
-    if exc_level:
+    if exc_pattern:
         if exc_pattern == 'rookie':
-            return rookie(exc_level)
+            return rookie(exc_level if not None else 1)
         elif exc_pattern == 'intermediate':
-            return intermediate(exc_level)
+            return intermediate(exc_level if not None else 1)
         elif exc_pattern == 'advanced':
-            return advanced(exc_level)
+            return advanced(exc_level if not None else 1)
 
     # ip:5000/exercise?progressive=yes || ip:5000/exercise?progressive=Yes
     if progressive:

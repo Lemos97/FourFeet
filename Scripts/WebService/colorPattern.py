@@ -1,7 +1,7 @@
 import time
 import pigpio
 from random import *
-import  datetime
+import datetime
 from subprocess import call
 
 
@@ -36,7 +36,7 @@ def random_color():
     colors = []
     #   getting a list of 15 colors
     for r in range(0, 15):
-        x = randint(0, 255)
+        x = randint(0, 256)
         colors.append(x)
     return colors
 
@@ -59,9 +59,7 @@ def random_color_random_strip(sleep):
             pi.set_PWM_dutycycle(int(s['strip'].get('G')), choice(random_color()))
             pi.set_PWM_dutycycle(int(s['strip'].get('B')), choice(random_color()))
             time.sleep(sleep)
-            pi.set_PWM_dutycycle(int(s['strip'].get('R')), 0)
-            pi.set_PWM_dutycycle(int(s['strip'].get('G')), 0)
-            pi.set_PWM_dutycycle(int(s['strip'].get('B')), 0)
+            turn_off(s['strip'])
             done_strips.append(s)
         else:
             if done_strips[-1]['strip'].get('R') == s['strip'].get('R'):
@@ -71,25 +69,11 @@ def random_color_random_strip(sleep):
                 pi.set_PWM_dutycycle(int(s['strip'].get('G')), choice(random_color()))
                 pi.set_PWM_dutycycle(int(s['strip'].get('B')), choice(random_color()))
                 time.sleep(sleep)
-                pi.set_PWM_dutycycle(int(s['strip'].get('R')), 0)
-                pi.set_PWM_dutycycle(int(s['strip'].get('G')), 0)
-                pi.set_PWM_dutycycle(int(s['strip'].get('B')), 0)
+                turn_off(s['strip'])
                 done_strips.append(s)
     except KeyboardInterrupt:
-            pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), 0)
-            pi.set_PWM_dutycycle(int(strips['strip2'].get('R')), 0)
-            pi.set_PWM_dutycycle(int(strips['strip3'].get('R')), 0)
-            pi.set_PWM_dutycycle(int(strips['strip4'].get('R')), 0)
-
-            pi.set_PWM_dutycycle(int(strips['strip1'].get('G')), 0)
-            pi.set_PWM_dutycycle(int(strips['strip2'].get('G')), 0)
-            pi.set_PWM_dutycycle(int(strips['strip3'].get('G')), 0)
-            pi.set_PWM_dutycycle(int(strips['strip4'].get('G')), 0)
-
-            pi.set_PWM_dutycycle(int(strips['strip1'].get('B')), 0)
-            pi.set_PWM_dutycycle(int(strips['strip2'].get('B')), 0)
-            pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), 0)
-            pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), 0)
+        for i in range(1, 5):
+            turn_off(strips['strip'+str(i)])
             pi.stop()
 
 
@@ -117,7 +101,6 @@ def rookie(level):
 
 
 def intermediate(level):
-
     if level:
         if level == 1:
             for i in range(0, 10):
@@ -185,20 +168,15 @@ def welcome_pattern():
         pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), choice(random_color()))
         pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), choice(random_color()))
         time.sleep(.5)
-    pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), 0)
-    pi.set_PWM_dutycycle(int(strips['strip2'].get('R')), 0)
-    pi.set_PWM_dutycycle(int(strips['strip3'].get('R')), 0)
-    pi.set_PWM_dutycycle(int(strips['strip4'].get('R')), 0)
+    for i in range(1, 5):
+        turn_off(strips['strip' + str(i)])
 
-    pi.set_PWM_dutycycle(int(strips['strip1'].get('G')), 0)
-    pi.set_PWM_dutycycle(int(strips['strip2'].get('G')), 0)
-    pi.set_PWM_dutycycle(int(strips['strip3'].get('G')), 0)
-    pi.set_PWM_dutycycle(int(strips['strip4'].get('G')), 0)
 
-    pi.set_PWM_dutycycle(int(strips['strip1'].get('B')), 0)
-    pi.set_PWM_dutycycle(int(strips['strip2'].get('B')), 0)
-    pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), 0)
-    pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), 0)
+def turn_off(strip):
+    pi.set_PWM_dutycycle(int(strip.get('R')), 0)
+    pi.set_PWM_dutycycle(int(strip.get('G')), 0)
+    pi.set_PWM_dutycycle(int(strip.get('B')), 0)
+
 
 # if __name__ == "__main__":
 #
