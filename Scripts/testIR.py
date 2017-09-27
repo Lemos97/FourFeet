@@ -14,7 +14,6 @@ def loop():
 		if (0 == GPIO.input(ObstaclePin)):
 			print "SOMETHING DETECTED CRL"
 			
-
 def destroy():
 	GPIO.cleanup()
 
