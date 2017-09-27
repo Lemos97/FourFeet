@@ -26,27 +26,21 @@ export default class HomeScreen extends React.Component {
           <View style={styles.row}>
             <View>
               <TouchableOpacity>
-                {/*style={b.style} onPress={_handleClick(b.nav)}>*/}
-                {/* <Image source={require(b.img)}/> */}
-                <Text>{buttons.TopLeft.text}</Text>
+                <Image style={styles.buttonStyle} source={require('../assets/icons/play_icon.png')} />
+                <Text>Jogar</Text>
               </TouchableOpacity>
               <TouchableOpacity>
-                {/*style={b.style} onPress={_handleClick(b.nav)}>*/}
-                {/* <Image source={require(b.img)}/> */}
-                <Text>{buttons.TopRight.text}</Text>
+                <Image style={styles.buttonStyle} source={require('../assets/icons/user_icon.png')} />
+                <Text>Perfil</Text>
               </TouchableOpacity>
             </View>
-            <View> 
-              <TouchableOpacity>
-                {/*style={b.style} onPress={_handleClick(b.nav)}>*/}
-                {/* <Image source={require(b.img)}/> */}
-                <Text>{buttons.BottomLeft.text}</Text>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                {/*style={b.style} onPress={_handleClick(b.nav)}>*/}
-                {/* <Image source={require(b.img)}/> */}
-                <Text>{buttons.BottomRight.text}</Text>
-              </TouchableOpacity>
+            <View style={styles.row}>
+              <View>
+                <TouchableOpacity>
+                  <Image style={styles.buttonStyle} source={require('../assets/icons/ranking_icon.png')} />
+                  <Text style={styles.text}>Ranking</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </ScrollView>
@@ -55,51 +49,25 @@ export default class HomeScreen extends React.Component {
   }
 }
 
-const buttons = {
-  TopLeft: {
-    text: 'Jogar',
-    // style:'',
-    // nav:'',
-    // img:''
-  },
-  TopRight: {
-    text: 'Perfil',
-    // style:'',
-    // nav:'',
-    // img:''
-  },
-  BottomLeft: {
-    text: 'Ranking',
-    //   style:'',
-    //   nav:'',
-    //   img:''
-  },
-  BottomRight: {
-    text: 'Sobre',
-    // style:'',
-    // nav:'',
-    // img:''
-  }
-}
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#cfcfcf',
   },
 
   contentContainer: {
     paddingTop: 30,
   },
-  
-  row:{
-    flexDirection:'row'
+
+  row: {
+    flexDirection: 'row'
+  },
+
+  text: {
+    textAlign: 'center'
   },
 
   buttonStyle: {
-    height:'110px',
-    borderRadius: 2,
-    borderWidth: 0.5,
-    borderColor: '#d6d7da',
+
   }
 });

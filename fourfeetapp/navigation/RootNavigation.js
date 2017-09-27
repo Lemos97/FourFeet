@@ -3,12 +3,13 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 
 import LandingScreen from '../screens/LandingScreen';
+import MainTabNavigator from './MainTabNavigator';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator(
   {
     Main: {
-      screen: LandingScreen,
+      screen: MainTabNavigator,
     },
   },
   {
