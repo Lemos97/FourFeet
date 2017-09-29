@@ -36,7 +36,7 @@ export default class HomeScreen extends React.Component {
                   <Image style={styles.image} source={require('../assets/icons/user_icon.png')} />
                   <Text style={styles.text}>Perfil</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.btnLayout}>
+                <TouchableOpacity style={[styles.btnLayout, styles.profileLayout]}>
                   <Image style={styles.image} source={require('../assets/icons/ranking_icon.png')} />
                   <Text style={styles.text}>Ranking</Text>
                 </TouchableOpacity>
