@@ -73,17 +73,17 @@ const styles = StyleSheet.create({
 		backgroundColor: '#cfcfcf',
 	},
 
-	contentContainer: {
-		paddingTop: 100,
-	},
+  contentContainer: {
+    paddingTop: 50,
+  },
 
-	playLayout: {
-		width: 400
-	},
+  playLayout: {
+    width: 300
+  },
 
-	profileLayout: {
-		width: 200
-	},
+  profileLayout: {
+    width: 150,
+  },
 
 	btnLayout: {
 		borderColor: '#ffffff',
