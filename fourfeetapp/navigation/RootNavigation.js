@@ -4,13 +4,14 @@ import { StackNavigator } from 'react-navigation';
 
 import LandingScreen from '../screens/LandingScreen';
 import MainTabNavigator from './MainTabNavigator';
+import PlayScreen from '../screens/subscreens/PlayScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator(
   {
-    Main: {
-      screen: MainTabNavigator,
-    },
+    Landing: { screen: LandingScreen },
+    Home: { screen: MainTabNavigator },
+    Play: { screen: PlayScreen },
   },
   {
     navigationOptions: () => ({
