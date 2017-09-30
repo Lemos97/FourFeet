@@ -15,7 +15,7 @@ def home():
     welcome_pattern()
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET'])
 def login():
     try:
         check = check_if_account()
@@ -23,9 +23,8 @@ def login():
             #   ip/login?name=Example&age=99&side=Right to register account
             name = request.args.get('name')
             age = request.args.get('age', type=int)
-            predominant_side = request.args.get('side', default='Ambidextrous')
+            predominant_side = request.args.get('side', default='Ambidextro')
             if name and age and predominant_side:
-
                 return make_register(name, age, predominant_side), welcome_pattern()
         else:
             welcome_pattern()

@@ -31,9 +31,9 @@ def make_register(name, age, predominant_side):
                     json.dump(account, fp, ensure_ascii=True, indent=4)
                 finally:
                     fp.close()
-                    return 'Account registered'
+                    return check_if_account()
     except IOError:
-        return 'Unable to register'
+        return json.dumps({'response':'Unable to create.'}, sort_keys=True, indent=4, separators=(',', ': '))
 
 
 def main():
