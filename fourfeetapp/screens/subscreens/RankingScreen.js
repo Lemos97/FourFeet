@@ -20,11 +20,13 @@ export default class RankingScreen extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <ScrollView>
-                    <Text>Rankings</Text>
-                </ScrollView>
-            </View>
+            <BackgroundImage>
+                <View style={styles.container}>
+                    <ScrollView>
+                        <Text>Rankings</Text>
+                    </ScrollView>
+                </View>
+            </BackgroundImage>
         );
     }
 }
@@ -32,7 +34,7 @@ export default class RankingScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#cfcfcf',
+        backgroundColor: '#fff',
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'

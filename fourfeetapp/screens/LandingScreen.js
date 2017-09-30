@@ -22,46 +22,46 @@ export default class LandingScreen extends React.Component {
 
 	handleNav = async () => {
 		const { navigate } = this.props.navigation;
-		if (this.state.details != null) {
-			navigate('Home', this.state.details);
-		}
+		// if (this.state.details != null) {
+		navigate('Home', this.state.details);
+		// }
 	}
 
 
-	handleSubmit = async (value) => {
-		const { navigate } = this.props.navigation;
+	// handleSubmit = async (value) => {
+	// 	const { navigate } = this.props.navigation;
 
-		console.log(value.name, value.age, value.gender, value.side)
+	// 	console.log(value.name, value.age, value.gender, value.side)
 
-		const resp = await login({ name: value.name, age: value.age, gender: value.gender, side: value.side })
-		console.log(resp)
+	// 	const resp = await login({ name: value.name, age: value.age, gender: value.gender, side: value.side })
+	// 	console.log(resp)
 
-		if (resp.isSuccess) {
-			if (typeof resp == 'object') {
-				if (this.state.details != null) {
-					this.setState({ details: resp })
-				}
-			}
-			navigate('Home', this.state.details);
-		}
-	}
+	// 	if (resp.isSuccess) {
+	// 		if (typeof resp == 'object') {
+	// 			if (this.state.details != null) {
+	// 				this.setState({ details: resp })
+	// 			}
+	// 		}
+	// 		navigate('Home', this.state.details);
+	// 	}
+	// }
 
-	tryLogin = async () => {
-		const { navigate } = this.props.navigation;
-		const resp = await login({})
-		if (resp.isSuccess == true) {
-			this.setState({ isRegisted: true });
-			this.setState({ details: resp })
-			navigate('Home', this.state.details)
-		}
-		else {
-			return false;
-		}
-	}
+	// tryLogin = async () => {
+	// 	const { navigate } = this.props.navigation;
+	// 	const resp = await login({})
+	// 	if (resp.isSuccess == true) {
+	// 		this.setState({ isRegisted: true });
+	// 		this.setState({ details: resp })
+	// 		navigate('Home', this.state.details)
+	// 	}
+	// 	else {
+	// 		return false;
+	// 	}
+	// }
 
-	componentWillMount() {
-		this.tryLogin()
-	}
+	// componentWillMount() {
+	// 	this.tryLogin()
+	// }
 
 
 	render() {
@@ -70,11 +70,11 @@ export default class LandingScreen extends React.Component {
 			<BackgroundImage>
 				<View style={styles.container}>
 					<Image style={styles.image} source={require('../assets/icons/4f_logo.png')} />
-					{this.state.isRegisted ?
-						<TouchableOpacity style={styles.btnSubmit} onPress={this.handleNav}>
-							<Text style={styles.text}>Conecte-se</Text>
-						</TouchableOpacity>
-						: <RegisterForm onSubmit={this.handleSubmit} />}
+					{/* {this.state.isRegisted ?*/}
+					<TouchableOpacity style={styles.btnSubmit} onPress={this.handleNav}>
+						<Text style={styles.text}>Conecte-se</Text>
+					</TouchableOpacity>
+					{/*	: <RegisterForm onSubmit={this.handleSubmit} />} */}
 				</View>
 			</BackgroundImage>
 		);
@@ -83,6 +83,7 @@ export default class LandingScreen extends React.Component {
 
 const styles = StyleSheet.create({
 	container: {
+		opacity: 1,
 		flex: 1,
 		marginTop: -35,
 		backgroundColor: '#fff',

@@ -10,6 +10,7 @@ import {
   Button
 } from 'react-native';
 import { ExpoConfigView } from '@expo/samples';
+import BackgroundImage from '../components/BackgroundImage';
 
 export default class AboutScreen extends React.Component {
   static navigationOptions = {
@@ -19,6 +20,10 @@ export default class AboutScreen extends React.Component {
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
-    return <ExpoConfigView />;
+    return (
+      <BackgroundImage>
+        <ExpoConfigView />
+      </BackgroundImage>
+    );
   }
 }

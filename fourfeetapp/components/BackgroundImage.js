@@ -20,7 +20,7 @@ export default class BackgroundImage extends React.Component {
 const styles = StyleSheet.create({
     backgroundImage: {
         flex: 1,
-        opacity: 1,
+        opacity: 0.8,
         resizeMode: 'cover', // or 'stretch'
         width: null,
         height: null

@@ -46,12 +46,13 @@ const layout = {
             }
         },
         gender: {
-            label: "Sexo",
-            placeholder: "Lado Predominante",
+            auto: "none",
+            required: true,
+            nullOption: { value: null, text: 'Sexo' }
         },
         side: {
-            label: "Lado Predominante",
-            placeholder: "Lado Predominante",
+            auto: "none",
+            nullOption: { value: null, text: 'Escolha o seu lado predominante' }
         }
     }
 };

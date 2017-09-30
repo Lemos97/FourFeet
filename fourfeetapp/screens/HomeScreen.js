@@ -45,41 +45,41 @@ export default class HomeScreen extends React.Component {
 
 	render() {
 		return (
-			// <BackgroundImage>
-			<View style={styles.container}>
-				<ScrollView>
-					<View style={styles.col}>
-						<Image style={styles.logo} source={require('../assets/icons/4f_logo.png')} />
-					</View>
-					<View style={styles.col}>
-						<View style={styles.row}>
-							<TouchableOpacity activeOpacity={0.8} style={[styles.btnLayout, styles.playLayout]} onPress={this.handleNavPlay}>
-								<View>
-									<Image style={styles.image} source={require('../assets/icons/play_icon.png')} />
-									<Text style={styles.text}>Jogar</Text>
-								</View>
-							</TouchableOpacity>
+			<BackgroundImage>
+				<View style={styles.container}>
+					<ScrollView>
+						<View style={styles.col}>
+							<Image style={styles.logo} source={require('../assets/icons/4f_logo.png')} />
 						</View>
 						<View style={styles.col}>
 							<View style={styles.row}>
-								<TouchableOpacity activeOpacity={0.8} style={[styles.btnLayout, styles.profileLayout]} onPress={this.handleNavProfile}>
+								<TouchableOpacity activeOpacity={0.8} style={[styles.btnLayout, styles.playLayout]} onPress={this.handleNavPlay}>
 									<View>
-										<Image style={styles.image} source={require('../assets/icons/user_icon.png')} />
-										<Text style={styles.text}>Perfil</Text>
-									</View>
-								</TouchableOpacity>
-								<TouchableOpacity activeOpacity={0.8} style={[styles.btnLayout, styles.profileLayout]} onPress={this.handleNavRanking}>
-									<View>
-										<Image style={styles.image} source={require('../assets/icons/ranking_icon.png')} />
-										<Text style={styles.text}>Ranking</Text>
+										<Image style={styles.image} source={require('../assets/icons/play_icon.png')} />
+										<Text style={styles.text}>Jogar</Text>
 									</View>
 								</TouchableOpacity>
 							</View>
+							<View style={styles.col}>
+								<View style={styles.row}>
+									<TouchableOpacity activeOpacity={0.8} style={[styles.btnLayout, styles.profileLayout]} onPress={this.handleNavProfile}>
+										<View>
+											<Image style={styles.image} source={require('../assets/icons/user_icon.png')} />
+											<Text style={styles.text}>Perfil</Text>
+										</View>
+									</TouchableOpacity>
+									<TouchableOpacity activeOpacity={0.8} style={[styles.btnLayout, styles.profileLayout]} onPress={this.handleNavRanking}>
+										<View>
+											<Image style={styles.image} source={require('../assets/icons/ranking_icon.png')} />
+											<Text style={styles.text}>Ranking</Text>
+										</View>
+									</TouchableOpacity>
+								</View>
+							</View>
 						</View>
-					</View>
-				</ScrollView>
-			</View>
-			/* </BackgroundImage> */
+					</ScrollView>
+				</View>
+			</BackgroundImage>
 		);
 	}
 }
@@ -88,6 +88,8 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		backgroundColor: '#fff',
+
 	},
 
 	playLayout: {
