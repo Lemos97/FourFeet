@@ -23,9 +23,10 @@ def login():
             #   ip/login?name=Example&age=99&side=Right to register account
             name = request.args.get('name')
             age = request.args.get('age', type=int)
+            gender = request.args.get('gender')
             predominant_side = request.args.get('side', default='Ambidextro')
-            if name and age and predominant_side:
-                return jsonify(make_register(name, age, predominant_side))
+            if name and age and gender:
+                return jsonify(make_register(name, age, gender, predominant_side))
         else:
             return json.dumps(check)
     except ConnectionError:

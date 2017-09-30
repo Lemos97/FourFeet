@@ -16,11 +16,12 @@ def check_if_account():
         return False
 
 
-def make_register(name, age, predominant_side):
+def make_register(name, age, gender, predominant_side):
     try:
         account = {
             'name': name,
             'age': age,
+            'gender':gender,
             'predominant_side': predominant_side,
             'register_date': str(datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S'))
         }
