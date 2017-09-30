@@ -25,7 +25,7 @@ def login():
             age = request.args.get('age', type=int)
             predominant_side = request.args.get('side', default='Ambidextro')
             if name and age and predominant_side:
-                return make_register(name, age, predominant_side)
+                return jsonify(make_register(name, age, predominant_side))
         else:
             return json.dumps(check)
     except ConnectionError:
@@ -43,11 +43,11 @@ def colors():
     # ip:5000/exercise?difficulty=advanced&level=1(2,3)
     if exc_pattern:
         if exc_pattern == 'rookie':
-            return rookie(exc_level if not None else 1)
+            return jsonify(rookie(exc_level if not None else 1))
         elif exc_pattern == 'intermediate':
-            return intermediate(exc_level if not None else 1)
+            return jsonify(intermediate(exc_level if not None else 1))()
         elif exc_pattern == 'advanced':
-            return advanced(exc_level if not None else 1)
+            return jsonify(advanced(exc_level if not None else 1))
 
     # ip:5000/exercise?progressive=yes || ip:5000/exercise?progressive=Yes
     if progressive:
