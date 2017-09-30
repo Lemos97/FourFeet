@@ -58,7 +58,7 @@ def colors():
             intermediate(None)
             time.sleep(7)
             advanced(None)
-            return "## Progressive mode ended ##"
+            return json.dumps({'response': 'Progressive mode ended.'}, sort_keys=True, indent=4, separators=(',', ': '))
 
     if infinite:
         if infinite == 'yes' or infinite == 'Yes':

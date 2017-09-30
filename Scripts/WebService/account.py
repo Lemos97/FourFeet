@@ -33,7 +33,7 @@ def make_register(name, age, predominant_side):
                     fp.close()
                     return check_if_account()
     except IOError:
-        return json.dumps({'response':'Unable to create.'}, sort_keys=True, indent=4, separators=(',', ': '))
+        return json.dumps({'response': 'Unable to create.'}, sort_keys=True, indent=4, separators=(',', ': '))
 
 
 def main():
