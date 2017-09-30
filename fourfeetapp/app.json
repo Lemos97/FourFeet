@@ -7,17 +7,19 @@
     "sdkVersion": "21.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
-    "primaryColor": "#cccccc",
+    // "primaryColor": "transparent",
     "icon": "./assets/icons/4f_logo.png",
     "notification": {
       "icon": "./assets/icons/notification-icon.png",
-      "color": "#000000"
+      "color": "#cccccc"
     },
     "loading": {
       "icon": "./assets/icons/4f_logo.png"
     },
     "packagerOpts": {
-      "assetExts": ["ttf"]
+      "assetExts": [
+        "ttf"
+      ]
     },
     "ios": {
       "bundleIdentifier": "com.sk3vy.new-project-template",

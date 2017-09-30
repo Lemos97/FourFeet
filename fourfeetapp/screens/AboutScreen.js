@@ -1,9 +1,19 @@
 import React from 'react';
+import {
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Button
+} from 'react-native';
 import { ExpoConfigView } from '@expo/samples';
 
-export default class SettingsScreen extends React.Component {
+export default class AboutScreen extends React.Component {
   static navigationOptions = {
-    header: null    
+    header: null
   };
 
   render() {

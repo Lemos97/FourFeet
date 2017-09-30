@@ -6,15 +6,15 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Colors from '../constants/Colors';
 
 import HomeScreen from '../screens/HomeScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import AboutScreen from '../screens/AboutScreen';
 
 export default TabNavigator(
   {
     Home: {
       screen: HomeScreen,
     },
-    Settings: {
-      screen: SettingsScreen,
+    About: {
+      screen: AboutScreen,
     },
   },
   {
@@ -25,13 +25,13 @@ export default TabNavigator(
         switch (routeName) {
           case 'Home':
             iconName = Platform.OS === 'ios'
+              ? `ios-home${focused ? '' : '-outline'}`
+              : 'md-home';
+            break;
+          case 'About':
+            iconName = Platform.OS === 'ios'
               ? `ios-information-circle${focused ? '' : '-outline'}`
               : 'md-information-circle';
-            break;
-          case 'Settings':
-            iconName = Platform.OS === 'ios'
-              ? `ios-options${focused ? '' : '-outline'}`
-              : 'md-options';
         }
         return (
           <Ionicons
@@ -44,17 +44,20 @@ export default TabNavigator(
       },
     }),
     tabBarOptions: {
-      activeTintColor: "white",
-      inactiveTintColor: "#48BBEC",
+      activeTintColor: "#48BBEC",
+      inactiveTintColor: "white",
       activeBackgroundColor: "white",
-      inactiveBackgroundColor: "#48BBEC",
+      showLabel: true,
+      labelStyle: {
+        fontSize: 12,
+      },
       style: {
         backgroundColor: "#48BBEC"
       }
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
-    animationEnabled: false,
+    animationEnabled: true,
     swipeEnabled: true,
   }
 );

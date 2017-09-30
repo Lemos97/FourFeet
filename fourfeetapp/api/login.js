@@ -1,20 +1,19 @@
 import ApiResult from '../components/ApiResult'
-import { apibaseurl } from '../../config'
+import { apibaseurl } from '../config'
 
-export async function login({ name, age, side }) {
+export async function login({ name, age, gender, side }) {
     try {
         const url = apibaseurl;
-
-        const response = await fetch(url + '/login?' + name + '&' + age + '&' + side, {
+        const response = await fetch(url + '/login?name=' + name + '&age=' + age + '&gender=' + gender + '&side=' + side, {
             method: 'get',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                Name: name,
-                Age: age,
-                PredominantSide: side
-            }),
+            // body: JSON.stringify({
+            //     Name: name,
+            //     Age: age,
+            //     PredominantSide: side
+            // }),
             credentials: 'same-origin'
         });
 

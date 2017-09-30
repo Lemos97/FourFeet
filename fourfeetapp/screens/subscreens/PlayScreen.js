@@ -5,18 +5,62 @@ import {
     ScrollView,
     StyleSheet,
     Text,
+    TouchableHighlight,
     TouchableOpacity,
-    View,
-    Button
+    View, Modal
 } from 'react-native';
+import { progressiveExercise, individualExercise } from '../../api/patternExercises';
 import { StackNavigator } from 'react-navigation';
 
 
 
 export default class PlayScreen extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            ongoingModal: false,
+            selectorModal: false
+        };
+    }
+
     static navigationOptions = {
         header: <Text> Jogar</Text>,
     };
+
+    handleProgressive = async () => {
+        const resp = await progressiveExercise({ progressive: "yes" })
+        while (!resp.isSuccess) {
+            this.setState({ ongoingModal: true })
+        }
+    }
+
+    // enableCancel
+
+
+    shouldComponentUpdate(nextState) {
+        if (this.state.ongoingModal != nextState.ongoingModal) {
+            return true
+        }
+        if (this.state.selectorModal != nextState.selectorModal) {
+            return true
+        }
+        return false
+    }
+
+    componentWillUpdate() {
+        <Modal
+            onRequestClose={() => { alert("Exercicio acabado.") }}
+            transparent={true}
+            visible={this.state.ongoingModal}
+        >
+            <View>
+                <View>
+                    <Text>Exercicio em progresso, aguarde...</Text>
+                </View>
+            </View>
+        </Modal>
+    }
+
 
     render() {
         return (
@@ -24,15 +68,15 @@ export default class PlayScreen extends React.Component {
                 <ScrollView>
                     <View style={styles.col}>
                         <View style={styles.row}>
-                            <TouchableOpacity style={[styles.btnLayout, styles.playLayout]}>
-                                <Image style={styles.image} source={require('../../assets/icons/play_icon.png')} />
+                            <TouchableOpacity style={[styles.btnLayout, styles.playLayout, { marginBottom: 20 }]} onPress={this.handleProgressive}>
+                                <Image style={styles.image} source={require('../../assets/icons/progressive_play.png')} />
                                 <Text style={styles.text}>Gradual ( Default )</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.col}>
                             <View style={styles.row}>
                                 <TouchableOpacity style={[styles.btnLayout, styles.playLayout]}>
-                                    <Image style={styles.image} source={require('../../assets/icons/play_icon.png')} />
+                                    <Image style={styles.image} source={require('../../assets/icons/select_play.png')} />
                                     <Text style={styles.text}>Selecionar nível ( Individual )</Text>
                                 </TouchableOpacity>
                             </View>

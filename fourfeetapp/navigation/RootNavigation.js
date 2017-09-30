@@ -1,10 +1,13 @@
 import { Notifications } from 'expo';
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
 
-import LandingScreen from '../screens/LandingScreen';
 import MainTabNavigator from './MainTabNavigator';
+import LandingScreen from '../screens/LandingScreen';
 import PlayScreen from '../screens/subscreens/PlayScreen';
+import ProfileScreen from '../screens/subscreens/ProfileScreen';
+import RankingScreen from '../screens/subscreens/RankingScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
 const RootStackNavigator = StackNavigator(
@@ -12,9 +15,17 @@ const RootStackNavigator = StackNavigator(
     Landing: { screen: LandingScreen },
     Home: { screen: MainTabNavigator },
     Play: { screen: PlayScreen },
+    Profile: { screen: ProfileScreen },
+    Ranking: { screen: RankingScreen },
   },
   {
     navigationOptions: () => ({
+      headerLeft: <Ionicons
+        name={'ios-apps-outline'}
+        size={25}
+        style={{ marginBottom: -3 }}
+        color={'#48BBEC'}
+      />,
       headerTitleStyle: {
         fontWeight: 'normal',
       },
