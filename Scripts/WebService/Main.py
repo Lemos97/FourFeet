@@ -1,5 +1,5 @@
 # coding=utf-8
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import time
 import json
 from colorPattern import rookie, intermediate, advanced, loop, welcome_pattern
@@ -25,9 +25,8 @@ def login():
             age = request.args.get('age', type=int)
             predominant_side = request.args.get('side', default='Ambidextro')
             if name and age and predominant_side:
-                return make_register(name, age, predominant_side), welcome_pattern()
+                return make_register(name, age, predominant_side)
         else:
-            welcome_pattern()
             return json.dumps(check)
     except ConnectionError:
         return 404
@@ -58,7 +57,7 @@ def colors():
             intermediate(None)
             time.sleep(7)
             advanced(None)
-            return json.dumps({'response': 'Progressive mode ended.'}, sort_keys=True, indent=4, separators=(',', ': '))
+            return jsonify({'response': 'Progressive mode ended.'})
 
     if infinite:
         if infinite == 'yes' or infinite == 'Yes':

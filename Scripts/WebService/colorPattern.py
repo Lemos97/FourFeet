@@ -98,7 +98,7 @@ def rookie(level):
         time.sleep(2)
         for i in range(0, 10):
             random_color_random_strip(2)
-    return json.dumps({'response': 'Rookie level ended'}, sort_keys=True, indent=4, separators=(',', ': '))
+    return {'response': 'Rookie level ended'}
 
 
 def intermediate(level):
@@ -121,7 +121,7 @@ def intermediate(level):
         time.sleep(2)
         for i in range(0, 10):
             random_color_random_strip(1)
-    return json.dumps({'response': 'Intermediate level ended'}, sort_keys=True, indent=4, separators=(',', ': '))
+    return {'response': 'Intermediate level ended'}
 
 
 def advanced(level):
@@ -144,7 +144,7 @@ def advanced(level):
         time.sleep(2)
         for i in range(0, 10):
             random_color_random_strip(float(.3))
-    return json.dumps({'response': 'Advanced level ended'}, sort_keys=True, indent=4, separators=(',', ': '))
+    return {'response': 'Advanced level ended'}
 
 
 def loop():
