@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     TouchableHighlight
 } from "react-native";
+import Colors from '../constants/Colors';
 
 
 const Side = t.enums({
@@ -33,12 +34,14 @@ const layout = {
             type: "String",
             placeholder: "Nome",
             auto: "none",
+            error: <Text style={{ color: Colors.errorText }}> O nome é campo obrigatório </Text>,
             required: true
         },
         age: {
             type: "Number",
             auto: "none",
             placeholder: "Idade",
+            error: <Text style={{ color: Colors.errorText }}> A idade é campo obrigatório </Text>,
             required: true,
             attr: {
                 min: 1,
@@ -47,6 +50,7 @@ const layout = {
         },
         gender: {
             auto: "none",
+            error: <Text style={{ color: Colors.errorText }}> O sexo é campo obrigatório </Text>,
             required: true,
             nullOption: { value: null, text: 'Sexo' }
         },
@@ -102,6 +106,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: "white",
         alignSelf: "center"
+    },
+    error: {
+        color: Colors.errorText,
+        textAlignVertical: 'center',
+        textAlign: 'center',
     },
     button: {
         height: 36,

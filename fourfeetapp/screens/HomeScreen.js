@@ -8,10 +8,12 @@ import {
 	View,
 	TouchableOpacity
 } from 'react-native';
-import BackgroundImage from '../components/BackgroundImage'
-import { StackNavigator, NavigationActions } from 'react-navigation';
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
+import { StackNavigator, NavigationActions } from 'react-navigation';
+
+import BackgroundImage from '../components/BackgroundImage'
+
 
 export default class HomeScreen extends React.Component {
 	static navigationOptions = {

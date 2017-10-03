@@ -1,7 +1,6 @@
 import { Notifications } from 'expo';
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons';
 
 import MainTabNavigator from './MainTabNavigator';
 import LandingScreen from '../screens/LandingScreen';
@@ -20,12 +19,6 @@ const RootStackNavigator = StackNavigator(
   },
   {
     navigationOptions: () => ({
-      headerLeft: <Ionicons
-        name={'ios-apps-outline'}
-        size={25}
-        style={{ marginBottom: -3 }}
-        color={'#48BBEC'}
-      />,
       headerTitleStyle: {
         fontWeight: 'normal',
       },

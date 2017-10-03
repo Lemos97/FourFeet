@@ -10,6 +10,8 @@ import {
     View, Modal
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
+
 
 import BackgroundImage from '../../components/BackgroundImage'
 import { progressiveExercise, individualExercise } from '../../api/patternExercises';
@@ -17,8 +19,8 @@ import { progressiveExercise, individualExercise } from '../../api/patternExerci
 
 
 export default class PlayScreen extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             ongoingModal: false,
             selectorModal: false
@@ -26,50 +28,58 @@ export default class PlayScreen extends React.Component {
     }
 
     static navigationOptions = {
-        header: <Text> Jogar</Text>,
+        headerRight: <Text>Jogar</Text>,
+        headerLeft: ({ goBack }) => (
+            <TouchableOpacity onPress={() => { goBack }}>
+                <Image style={{ width: 50, height: 50, }} source={require('../../assets/icons/home.png')} />
+            </TouchableOpacity>
+        ),
     };
 
     handleProgressive = async () => {
+        this.setState({
+            ongoingModal: true
+        });
         const resp = await progressiveExercise({ progressive: "yes" })
 
-        this.setModalVisible(true, 'ongoing')
         if (resp.isSuccess) {
-            this.setModalVisible(false, 'ongoing')
+            this.setState({ ongoingModal: false });
         }
     }
 
-    setModalVisible(visible, type) {
-        if (type == 'ongoing') {
-            this.setState({ ongoingModal: visible });
-        }
-        if (type == 'selector') {
-            this.setState({ selectorModal: visible });
-        }
+    handleSelectClick = async () => {
+        this.setState({ selectorModal: true });
     }
 
+    componentDidUpdate(_, prevState) {
 
-    shouldComponentUpdate(nextState) {
-        if (this.state.ongoingModal != nextState.ongoingModal) {
-            return true
-        }
-        if (this.state.selectorModal != nextState.selectorModal) {
-            return true
-        }
-        return false
-    }
-
-    componentWillUpdate() {
-        <Modal
-            onRequestClose={() => { alert("Exercicio acabado.") }}
-            transparent={true}
-            visible={this.state.ongoingModal}
-        >
-            <View>
+        if (this.state.ongoingModal != prevState.ongoingModal) {
+            <Modal
+                onRequestClose={() => { alert("Exercicio acabado.") }}
+                transparent={true}
+                visible={this.state.ongoingModal}
+            >
                 <View>
-                    <Text>Exercicio em progresso, aguarde...</Text>
+                    <View>
+                        <Text>Exercicio em progresso, aguarde...</Text>
+                    </View>
                 </View>
-            </View>
-        </Modal>
+            </Modal>
+        }
+
+        if (this.state.selectorModal != prevState.selectorModal) {
+            <Modal
+                onRequestClose={() => { alert("Exercicio acabado.") }}
+                transparent={true}
+                visible={this.state.selectorModal}
+            >
+                <View>
+                    <View>
+                        <Text>Exercicio em progresso, aguarde...</Text>
+                    </View>
+                </View>
+            </Modal>
+        }
     }
 
 
@@ -87,7 +97,7 @@ export default class PlayScreen extends React.Component {
                             </View>
                             <View style={styles.col}>
                                 <View style={styles.row}>
-                                    <TouchableOpacity style={[styles.btnLayout, styles.playLayout]}>
+                                    <TouchableOpacity style={[styles.btnLayout, styles.playLayout]} onPress={this.handleSelectClick}>
                                         <Image style={styles.image} source={require('../../assets/icons/select_play.png')} />
                                         <Text style={styles.text}>Selecionar nível ( Individual )</Text>
                                     </TouchableOpacity>
@@ -126,6 +136,8 @@ const styles = StyleSheet.create({
 
     text: {
         color: 'white',
+        textAlign: 'center',
+        textAlignVertical: 'center'
     },
 
     col: {
