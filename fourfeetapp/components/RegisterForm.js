@@ -11,7 +11,7 @@ import Colors from '../constants/Colors';
 
 
 const Side = t.enums({
-    Right: 'Direito',
+    Right: 'Dextro',
     Left: 'Esquerdino',
     Both: 'Ambidextro'
 });

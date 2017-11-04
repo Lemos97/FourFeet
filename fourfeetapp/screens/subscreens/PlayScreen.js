@@ -28,12 +28,7 @@ export default class PlayScreen extends React.Component {
     }
 
     static navigationOptions = {
-        headerRight: <Text>Jogar</Text>,
-        headerLeft: ({ goBack }) => (
-            <TouchableOpacity onPress={() => { goBack }}>
-                <Image style={{ width: 50, height: 50, }} source={require('../../assets/icons/home.png')} />
-            </TouchableOpacity>
-        ),
+        header: null
     };
 
     handleProgressive = async () => {
@@ -86,6 +81,14 @@ export default class PlayScreen extends React.Component {
     render() {
         return (
             <BackgroundImage>
+                <View style={styles.topbar}>
+                    <View style={styles.leftinfo}>
+                        <TouchableOpacity onPress={() => { goBack }}>
+                            <Image style={{ width: 50, height: 50, }} source={require('../../assets/icons/home.png')} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.rightinfo}></View>
+                </View>
                 <View style={styles.container}>
                     <ScrollView>
                         <View style={styles.col}>
@@ -118,6 +121,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
+    },
+
+    topbar: {
+        height: 50,
+    },
+    leftinfo: {
+        alignSelf: 'left',
+    },
+    rightinfo: {
+        alignSelf: 'right',
     },
 
     playLayout: {
