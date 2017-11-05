@@ -71,21 +71,17 @@ export default class EditForm extends Component {
 
     onPress() {
         const value = this.refs.form.getValue();
-        // console.log(value)
+
         if (!value) {
             return;
         }
 
         this.props.onSubmit(value);
-
     }
-
 
     componentDidUpdate(_, prevState) {
         if (this.state.value !== prevState.value) {
             this.setState({ disabled: false })
-        } else {
-            this.setState({ disabled: true })
         }
     }
 
@@ -109,6 +105,7 @@ export default class EditForm extends Component {
                 />
 
                 <TouchableHighlight
+
                     style={this.state.disabled ? [styles.buttonDisabled, styles.button] : styles.button}
                     onPress={() => this.onPress()}
                     underlayColor="#99d9f4"
