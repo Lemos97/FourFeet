@@ -44,7 +44,7 @@ export default TabNavigator(
       },
     }),
     tabBarOptions: {
-      activeTintColor: "#48BBEC",
+      activeTintColor: Colors.lightBlue,
       inactiveTintColor: "white",
       activeBackgroundColor: "white",
       showLabel: true,
@@ -52,7 +52,7 @@ export default TabNavigator(
         fontSize: 12,
       },
       style: {
-        backgroundColor: "#48BBEC"
+        backgroundColor: Colors.lightBlue
       }
     },
     tabBarComponent: TabBarBottom,

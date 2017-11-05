@@ -1,14 +1,19 @@
-const tintColor = '#2f95dc';
+const darkBlue = '#1D7A94';
+const lightBlue = '#68C2C3';
+const orange = '#F18445';
+
 
 export default {
-  tintColor,
+  darkBlue,
+  lightBlue,
+  orange,
   tabIconDefault: '#fff',
-  tabIconSelected: tintColor,
+  tabIconSelected: darkBlue,
   tabBar: '#fefefe',
   errorBackground: 'red',
   errorText: 'red',
-  warningBackground: '#EAEB5E',
-  warningText: '#666804',
-  noticeBackground: tintColor,
+  warningBackground: orange,
+  warningText: "#fff",
+  noticeBackground: darkBlue,
   noticeText: '#fff',
 };

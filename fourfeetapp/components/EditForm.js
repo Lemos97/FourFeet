@@ -11,9 +11,9 @@ import Colors from '../constants/Colors';
 
 
 const Side = t.enums({
-    Right: 'Dextro',
+    Right: 'Destro',
     Left: 'Esquerdino',
-    Both: 'Ambidextro'
+    Both: 'Ambidestro'
 });
 
 var Gender = t.enums({
@@ -32,17 +32,16 @@ const layout = {
     fields: {
         name: {
             type: "String",
+            editable: false,
             placeholder: "Nome",
             auto: "none",
-            error: <Text style={{ color: Colors.errorText }}> O nome é campo obrigatório </Text>,
-            required: true
+            // error: <Text style={{ color: Colors.errorText }}> O nome é campo obrigatório </Text>,
         },
         age: {
             type: "Number",
             auto: "none",
             placeholder: "Idade",
-            error: <Text style={{ color: Colors.errorText }}> A idade é campo obrigatório </Text>,
-            required: true,
+            error: <Text style={{ color: Colors.errorText }}> A idade é um campo obrigatório </Text>,
             attr: {
                 min: 1,
                 max: 99
@@ -50,29 +49,53 @@ const layout = {
         },
         gender: {
             auto: "none",
-            error: <Text style={{ color: Colors.errorText }}> O sexo é campo obrigatório </Text>,
-            required: true,
+            error: <Text style={{ color: Colors.errorText }}> O campo "sexo" é obrigatório </Text>,
             nullOption: { value: null, text: 'Sexo' }
         },
         side: {
             auto: "none",
-            nullOption: { value: null, text: 'Escolha o seu lado predominante' }
+            nullOption: { value: null, text: 'Escolha o seu lado predominante' },
+            error: <Text style={{ color: Colors.errorText }}> O campo "lado predominante" é obrigatório </Text>,
         }
     }
 };
 
-export default class RegisterForm extends Component {
-    state = { value: null };
+export default class EditForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: null,
+            disabled: true
+        };
+    }
 
     onPress() {
         const value = this.refs.form.getValue();
-
+        // console.log(value)
         if (!value) {
             return;
         }
 
         this.props.onSubmit(value);
+
     }
+
+
+    componentDidUpdate(_, prevState) {
+        if (this.state.value !== prevState.value) {
+            this.setState({ disabled: false })
+        } else {
+            this.setState({ disabled: true })
+        }
+    }
+
+    componentWillMount() {
+        if (this.props.data !== {}) {
+            this.setState({ value: this.props.data })
+        }
+    }
+
+
 
     render() {
         return (
@@ -86,16 +109,18 @@ export default class RegisterForm extends Component {
                 />
 
                 <TouchableHighlight
-                    style={styles.button}
+                    style={this.state.disabled ? [styles.buttonDisabled, styles.button] : styles.button}
                     onPress={() => this.onPress()}
                     underlayColor="#99d9f4"
+                    disabled={this.state.disabled}
                 >
-                    <Text style={styles.buttonText}>Register</Text>
+                    <Text style={styles.buttonText}>Edit</Text>
                 </TouchableHighlight>
             </View>
         );
     }
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -104,7 +129,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 18,
-        color: "white",
+        color: "grey",
         alignSelf: "center"
     },
     error: {
@@ -122,5 +147,8 @@ const styles = StyleSheet.create({
         marginBottom: 25,
         alignSelf: "stretch",
         justifyContent: "center"
+    },
+    buttonDisabled: {
+        opacity: .4,
     }
 });

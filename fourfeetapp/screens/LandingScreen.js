@@ -1,9 +1,12 @@
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
 import { View, TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 import { ExpoLinksView } from '@expo/samples';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 import { login } from '../api/login';
+import Colors from '../constants/Colors';
 import RegisterForm from '../components/RegisterForm';
 import BackgroundImage from '../components/BackgroundImage';
 
@@ -52,7 +55,9 @@ export default class LandingScreen extends React.Component {
 		// if (resp.isSuccess == true) {
 		// 	this.setState({ isRegisted: true });
 		// 	this.setState({ details: resp })
-		navigate('Home', this.state.details)
+		setInterval(() => {
+			navigate('Home')//this.state.details)
+		}, 2000)
 		// }
 		// else {
 		// 	return false;
@@ -60,7 +65,7 @@ export default class LandingScreen extends React.Component {
 	}
 
 	componentWillMount() {
-		this.tryLogin()
+		// this.tryLogin()
 	}
 
 
@@ -71,8 +76,13 @@ export default class LandingScreen extends React.Component {
 				<View style={styles.container}>
 					<Image style={styles.image} source={require('../assets/icons/4f_logo.png')} />
 					{/* {this.state.isRegisted ? */}
-					<TouchableOpacity style={styles.btnSubmit} onPress={this.handleNav}>
-						<Text style={styles.text}>Conecte-se</Text>
+					<TouchableOpacity style={styles.btnSubmit} onPress={this.handleNav} activeOpacity={.6}>
+						<Text style={styles.text}>Conecte-se </Text>
+						<MaterialCommunityIcons
+							name='login'
+							size={25}
+							color={Colors.darkBlue}
+						/>
 					</TouchableOpacity>
 					{/* : <RegisterForm onSubmit={this.handleSubmit} />} */}
 				</View>
@@ -90,26 +100,26 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
-
 	text: {
 		fontSize: 18,
-		alignSelf: "center",
 		color: '#fff'
 	},
-
 	image: {
 		height: 75,
 		width: 100,
 		resizeMode: 'stretch',
 	},
-
 	btnSubmit: {
+		flexDirection: 'row',
+		justifyContent: 'center',
 		height: 36,
-		width: 200,
-		backgroundColor: "#48BBEC",
-		borderColor: "#48BBEC",
+		width: 150,
+		backgroundColor: Colors.lightBlue,
+		borderColor: Colors.lightBlue,
 		borderWidth: 1,
 		borderRadius: 8,
-		marginTop: 10,
+		marginTop: 30,
+		paddingTop: 3,
+
 	}
 });

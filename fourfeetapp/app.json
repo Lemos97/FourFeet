@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "fourfeetapp",
+    "name": "FourFeet",
     "description": "No description",
-    "slug": "fourfeetapp",
+    "slug": "fourfeet",
     "privacy": "public",
     "sdkVersion": "21.0.0",
     "version": "1.0.0",
@@ -10,7 +10,7 @@
     // "primaryColor": "transparent",
     "icon": "./assets/icons/4f_logo.png",
     "notification": {
-      "icon": "./assets/icons/notification-icon.png",
+      "icon": "./assets/icons/home.png",
       "color": "#cccccc"
     },
     "loading": {

@@ -11,6 +11,7 @@ import {
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 import { StackNavigator, NavigationActions } from 'react-navigation';
+import Colors from '../constants/Colors';
 
 import BackgroundImage from '../components/BackgroundImage'
 
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
 
 	playLayout: {
 		width: '98%',
-		backgroundColor: '#4682B4',
+		backgroundColor: Colors.darkBlue,
 	},
 
 	profileLayout: {
@@ -106,27 +107,25 @@ const styles = StyleSheet.create({
 	btnLayout: {
 		borderColor: '#ffffff',
 		borderWidth: 2,
-		backgroundColor: '#48BBEC',
+		backgroundColor: Colors.lightBlue,
 		alignItems: 'center',
 		padding: 5,
 		height: 150,
 	},
-
 	text: {
 		color: 'white',
-		textAlign: 'center'
+		textAlign: 'center',
+		fontSize: 16,
+		fontWeight: 'bold'
 	},
-
 	col: {
 		flexDirection: 'column',
 		alignItems: 'center',
 	},
-
 	row: {
 		flexDirection: 'row',
 		alignItems: 'center',
 	},
-
 	logo: {
 		height: 75,
 		width: 100,
@@ -134,7 +133,6 @@ const styles = StyleSheet.create({
 		marginBottom: '20%',
 		marginTop: 25,
 	},
-
 	image: {
 		flex: 1,
 		height: 100,

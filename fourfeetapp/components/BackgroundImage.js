@@ -10,7 +10,6 @@ export default class BackgroundImage extends React.Component {
 
     render() {
         return (
-
             <Image style={styles.backgroundImage} source={require('../assets/icons/4f_logo.png')}>
                 {this.props.children}
             </Image>

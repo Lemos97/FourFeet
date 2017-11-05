@@ -6,6 +6,7 @@ import MainTabNavigator from './MainTabNavigator';
 import LandingScreen from '../screens/LandingScreen';
 import PlayScreen from '../screens/subscreens/PlayScreen';
 import ProfileScreen from '../screens/subscreens/ProfileScreen';
+import EditProfileScreen from '../screens/subscreens/EditProfileScreen';
 import RankingScreen from '../screens/subscreens/RankingScreen';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
@@ -15,6 +16,7 @@ const RootStackNavigator = StackNavigator(
     Home: { screen: MainTabNavigator },
     Play: { screen: PlayScreen },
     Profile: { screen: ProfileScreen },
+    Edit: { screen: EditProfileScreen },
     Ranking: { screen: RankingScreen },
   },
   {
