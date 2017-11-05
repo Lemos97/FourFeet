@@ -30,7 +30,7 @@ export default class RankingScreen extends React.Component {
 			<BackgroundImage>
 				<View style={styles.topbar}>
 					<View style={styles.leftinfo}>
-						<TouchableOpacity onPress={() => { goBack() }} activeOpacity={.6}>
+						<TouchableOpacity onPress={() => { navigate('Home') }} activeOpacity={.6}>
 							<Image style={{ width: 45, height: 45 }} source={require('../../assets/icons/home.png')} />
 						</TouchableOpacity>
 					</View>
