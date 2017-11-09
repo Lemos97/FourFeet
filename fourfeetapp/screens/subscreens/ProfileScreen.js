@@ -10,7 +10,7 @@ import {
 	Button, Alert
 } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, NavigationActions } from 'react-navigation';
 
 import BackgroundImage from '../../components/BackgroundImage'
 import Colors from '../../constants/Colors';
@@ -30,7 +30,10 @@ export default class ProfileScreen extends React.Component {
 		};
 	}
 
-
+	reset = async () => {
+		console.log("ENTRA FDS")
+		return
+	}
 
 	componentWillMount() {
 		const { state } = this.props.navigation;
@@ -44,6 +47,23 @@ export default class ProfileScreen extends React.Component {
 				{ cancelable: false },
 			);
 			this.setState({ data: state.params.profileData })
+			try {
+				this.props
+					.navigation
+					.dispatch(NavigationActions.reset(
+						{
+							index: 2,
+							key: null,
+							actions: [
+								NavigationActions.navigate({ routeName: 'Landing' }),
+								NavigationActions.navigate({ routeName: 'Home' }),
+								NavigationActions.navigate({ routeName: 'Profile' })
+							]
+						}));
+
+			} catch (e) {
+				console.log(e)
+			}
 		} else {
 			let data = {
 				name: "Bruno Lemos",
@@ -54,6 +74,7 @@ export default class ProfileScreen extends React.Component {
 			this.setState({ data: data })
 		}
 	}
+
 
 	render() {
 		const { goBack, navigate, state } = this.props.navigation;

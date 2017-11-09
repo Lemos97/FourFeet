@@ -81,11 +81,10 @@ export default class PlayScreen extends React.Component {
 				[{
 					text: 'Fechar', onPress: () => {
 						if (this.state.selectorModal == false) {
-							Alert.alert(
-								'Exercicio terminado', null)
+							Alert.alert(null,
+								'Exercicio terminado')
 						} else {
-							Alert.alert(
-								'Exercicio ainda não terminado', null, [], { cancelable: !this.state.selectorModal })
+							Alert.alert(null, 'Exercicio ainda não terminado', [], { cancelable: !this.state.selectorModal })
 						}
 					}, style: 'cancel'
 				},],
