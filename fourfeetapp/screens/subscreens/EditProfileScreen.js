@@ -35,7 +35,8 @@ export default class EditProfileScreen extends React.Component {
 			side: value.side,
 			gender: value.gender
 		}
-		navigate('Profile', { profileData: data });
+
+		await navigate('Profile', { profileData: data });
 	}
 	render() {
 		const { goBack, state } = this.props.navigation;

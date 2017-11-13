@@ -95,7 +95,7 @@ export default class PlayScreen extends React.Component {
 
 
 	render() {
-		const { goBack } = this.props.navigation;
+		const { navigate } = this.props.navigation;
 
 		return (
 			<BackgroundImage>

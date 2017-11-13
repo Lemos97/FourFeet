@@ -48,19 +48,17 @@ export default class ProfileScreen extends React.Component {
 			);
 			this.setState({ data: state.params.profileData })
 			try {
-				this.props
-					.navigation
-					.dispatch(NavigationActions.reset(
-						{
-							index: 2,
-							key: null,
-							actions: [
-								NavigationActions.navigate({ routeName: 'Landing' }),
-								NavigationActions.navigate({ routeName: 'Home' }),
-								NavigationActions.navigate({ routeName: 'Profile' })
-							]
-						}));
-
+				this.props.navigation.dispatch(
+					NavigationActions.reset({
+						index: 2,
+						key: null,
+						actions: [
+							NavigationActions.navigate({ routeName: 'Landing' }),
+							NavigationActions.navigate({ routeName: 'Home' }),
+							NavigationActions.navigate({ routeName: 'Profile' })
+						]
+					})
+				);
 			} catch (e) {
 				console.log(e)
 			}
