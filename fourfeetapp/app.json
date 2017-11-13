@@ -7,8 +7,7 @@
     "sdkVersion": "21.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
-    // "primaryColor": "transparent",
-    "icon": "./assets/icons/4f_logo.png",
+    "icon": "./assets/icons/4f_logo(1).png",
     "notification": {
       "icon": "./assets/icons/home.png",
       "color": "#cccccc"
@@ -22,8 +21,16 @@
       ]
     },
     "ios": {
-      "bundleIdentifier": "com.sk3vy.new-project-template",
+      "bundleIdentifier": "com.fourfeet",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.fourfeet"
+    },
+    "isDetached": true,
+    "detach": {
+      "scheme": "expe5b8aab22be64b2b8c9c0ff9c971a37e",
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v1.20.0-sdk21.0.0-38791499-fe99-4600-950d-cf7e2e85cea9.tar.gz"
     }
   }
 }
