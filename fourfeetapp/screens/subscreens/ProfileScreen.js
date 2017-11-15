@@ -9,10 +9,9 @@ import {
 	View,
 	Button, Alert
 } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
 import { StackNavigator, NavigationActions } from 'react-navigation';
-
-import BackgroundImage from '../../components/BackgroundImage'
+import { Icon } from 'react-native-vector-icons/Entypo';
+import BackgroundImage from '../../components/BackgroundImage';
 import Colors from '../../constants/Colors';
 
 
@@ -28,11 +27,6 @@ export default class ProfileScreen extends React.Component {
 		this.state = {
 			data: null
 		};
-	}
-
-	reset = async () => {
-		console.log("ENTRA FDS")
-		return
 	}
 
 	componentWillMount() {
@@ -116,10 +110,11 @@ export default class ProfileScreen extends React.Component {
 				</View>
 				<View style={styles.editPen}>
 					<TouchableOpacity activeOpacity={.6} onPress={() => navigate('Edit', { data: data })}>
-						<Entypo
-							name='edit'
+						{/* <Icon name={'edit'}
 							size={25}
-							color={Colors.orange} />
+							style={{ marginBottom: -3 }}
+							color={Colors.orange} /> */}
+						<Text>Edit</Text>
 					</TouchableOpacity>
 				</View>
 			</BackgroundImage>

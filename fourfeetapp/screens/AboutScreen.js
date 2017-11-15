@@ -9,7 +9,6 @@ import {
   View,
   Button
 } from 'react-native';
-import { ExpoConfigView } from '@expo/samples';
 import BackgroundImage from '../components/BackgroundImage';
 
 export default class AboutScreen extends React.Component {
@@ -22,7 +21,7 @@ export default class AboutScreen extends React.Component {
      * content, we just wanted to give you a quick view of your config */
     return (
       <BackgroundImage>
-        <ExpoConfigView />
+        <View><ScrollView></ScrollView></View>
       </BackgroundImage>
     );
   }

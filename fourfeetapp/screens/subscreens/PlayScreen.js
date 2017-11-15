@@ -10,7 +10,6 @@ import {
 	View, Alert
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { Ionicons } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
 
 

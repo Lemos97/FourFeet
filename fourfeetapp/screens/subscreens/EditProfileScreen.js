@@ -9,7 +9,6 @@ import {
 	View,
 	Button
 } from 'react-native';
-import { Entypo } from '@expo/vector-icons';
 import { StackNavigator } from 'react-navigation';
 
 import BackgroundImage from '../../components/BackgroundImage';
@@ -58,34 +57,10 @@ export default class EditProfileScreen extends React.Component {
 				<View style={styles.container}>
 					<ScrollView>
 						<View style={{ alignItems: 'center' }}>
-							{/*<View style={[styles.row, styles.biggerContains]}>
-								<Text style={styles.text}>{data.name}</Text>
-							</View>
-							<View style={[styles.row]}>
-								<View style={[styles.col]}>
-									<View style={[styles.row, styles.rowContains]}>
-										<Text style={styles.text}>{data.sex}</Text>
-									</View>
-									<View style={[styles.row, styles.rowContains]}>
-										<Text style={styles.text}>{data.predominantSide}</Text>
-									</View>
-								</View>
-								<View style={[styles.col, styles.ageContains]}>
-									<Text style={styles.text}>{data.age}</Text>
-								</View>
-							</View>*/}
 							<EditForm data={state.params.data} onSubmit={this.handleSubmit} />
 						</View>
 					</ScrollView>
 				</View>
-				{/* <View style={styles.editPen}>
-					<TouchableOpacity activeOpacity={.6} onPress={() => navigate('')}>
-						<Entypo
-							name='edit'
-							size={25}
-							color={Colors.orange} />
-					</TouchableOpacity>
-				</View> */}
 			</BackgroundImage>
 		);
 	}

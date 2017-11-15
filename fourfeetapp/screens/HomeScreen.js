@@ -8,7 +8,6 @@ import {
 	View,
 	TouchableOpacity
 } from 'react-native';
-import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 import { StackNavigator, NavigationActions } from 'react-navigation';
 import Colors from '../constants/Colors';
