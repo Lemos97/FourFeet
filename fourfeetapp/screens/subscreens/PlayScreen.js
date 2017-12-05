@@ -39,17 +39,17 @@ export default class PlayScreen extends React.Component {
 		// if (resp.isSuccess) {
 		//     this.setState({ ongoingModal: false });
 		// }
-		setInterval(() => {
+		setTimeout(() => {
 			this.setState({ ongoingModal: false });
-		}, 1000)
+		}, 2000)
 	}
 
 	handleSelectClick = async () => {
 		this.setState({ selectorModal: true });
 
-		setInterval(() => {
+		setTimeout(() => {
 			this.setState({ selectorModal: false });
-		}, 1000)
+		}, 2000)
 	}
 
 	componentDidUpdate(_, prevState) {
@@ -62,10 +62,10 @@ export default class PlayScreen extends React.Component {
 					text: 'Fechar', onPress: () => {
 						if (this.state.ongoingModal == false) {
 							Alert.alert(
-								'Exercicio terminado', null)
+								null, 'Exercicio terminado')
 						} else {
 							Alert.alert(
-								'Exercicio ainda não terminado', null, [], { cancelable: !this.state.ongoingModal })
+								null, 'Exercicio ainda não terminado', [], { cancelable: !this.state.ongoingModal })
 						}
 					}, style: 'cancel'
 				},],

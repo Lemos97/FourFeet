@@ -1,7 +1,7 @@
 import React from 'react';
 import { Platform, Text } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
-import { Icon } from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constants/Colors';
 
 import HomeScreen from '../screens/HomeScreen';
@@ -33,11 +33,10 @@ export default TabNavigator(
               : 'md-information-circle';
         }
         return (
-          // <Icon name={iconName}
-          //   size={25}
-          //   style={{ marginBottom: -3 }}
-          //   color={focused ? Colors.tabIconSelected : Colors.tabIconDefault} />
-          <Text>{iconName}</Text>
+          <Icon name={iconName}
+            size={25}
+            style={{ marginBottom: -3 }}
+            color={focused ? Colors.tabIconSelected : Colors.tabIconDefault} />
         );
       },
     }),

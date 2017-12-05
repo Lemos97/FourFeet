@@ -10,7 +10,7 @@ import {
 	Button, Alert
 } from 'react-native';
 import { StackNavigator, NavigationActions } from 'react-navigation';
-import { Icon } from 'react-native-vector-icons/Entypo';
+import Icon from 'react-native-vector-icons/Entypo';
 import BackgroundImage from '../../components/BackgroundImage';
 import Colors from '../../constants/Colors';
 
@@ -25,14 +25,20 @@ export default class ProfileScreen extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: null
+			data: {
+				name: "Bruno Lemos",
+				gender: "M",
+				side: 'Right',
+				age: '35'
+			}
 		};
 	}
+
 
 	componentWillMount() {
 		const { state } = this.props.navigation;
 
-		console.log(state.params)
+		console.log(state)
 		if (state.params !== undefined) {
 			Alert.alert(
 				null,
@@ -56,14 +62,6 @@ export default class ProfileScreen extends React.Component {
 			} catch (e) {
 				console.log(e)
 			}
-		} else {
-			let data = {
-				name: "Bruno Lemos",
-				gender: "M",
-				side: 'Right',
-				age: '35'
-			}
-			this.setState({ data: data })
 		}
 	}
 
@@ -110,11 +108,10 @@ export default class ProfileScreen extends React.Component {
 				</View>
 				<View style={styles.editPen}>
 					<TouchableOpacity activeOpacity={.6} onPress={() => navigate('Edit', { data: data })}>
-						{/* <Icon name={'edit'}
-							size={25}
+						<Icon name={'edit'}
+							size={30}
 							style={{ marginBottom: -3 }}
-							color={Colors.orange} /> */}
-						<Text>Edit</Text>
+							color={Colors.orange} />
 					</TouchableOpacity>
 				</View>
 			</BackgroundImage>

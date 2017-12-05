@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Image, StyleSheet, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { Icon } from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 import { login } from '../api/login';
@@ -77,11 +77,11 @@ export default class LandingScreen extends React.Component {
 					{/* {this.state.isRegisted ? */}
 					<TouchableOpacity style={styles.btnSubmit} onPress={this.handleNav} activeOpacity={.6}>
 						<Text style={styles.text}>Conecte-se </Text>
-						{/* <Icon
+						<Icon
 							name={'login'}
 							size={25}
 							color={Colors.darkBlue}
-						/> */}
+						/>
 					</TouchableOpacity>
 					{/* : <RegisterForm onSubmit={this.handleSubmit} />} */}
 				</View>

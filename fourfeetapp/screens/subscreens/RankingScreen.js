@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
 	Image,
 	Platform,
@@ -7,13 +8,15 @@ import {
 	Text,
 	TouchableOpacity,
 	View,
-	Button
+	Button,
+	TouchableHighlight
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { SmoothLine } from 'react-native-pathjs-charts';
 
 import BackgroundImage from '../../components/BackgroundImage'
 import Colors from '../../constants/Colors';
+import { width, height } from '../../constants/Layout';
 
 
 
@@ -22,139 +25,140 @@ export default class RankingScreen extends React.Component {
 	static navigationOptions = {
 		header: null
 	};
+	constructor(props) {
+		super(props);
+		this.state = {
+			data: [[{
+				"x": 0,
+				"y": 0
+			}, {
+				"x": 1,
+				"y": 1
+			}, {
+				"x": 2,
+				"y": 4
+			}, {
+				"x": 3,
+				"y": 15
+			}, {
+				"x": 4,
+				"y": 21
+			}, {
+				"x": 5,
+				"y": 34
+			}],
+			[{
+				"x": 0,
+				"y": 0
+			}, {
+				"x": 1,
+				"y": 1
+			}, {
+				"x": 2,
+				"y": 4
+			}, {
+				"x": 3,
+				"y": 9
+			}, {
+				"x": 4,
+				"y": 16
+			}, {
+				"x": 5,
+				"y": 25
+			}]]
+		}
+	}
+
+	handleMonth = async () => {
+		this.setState({
+			data: [[{
+				"x": 0,
+				"y": 0
+			}, {
+				"x": 1,
+				"y": 6
+			}, {
+				"x": 2,
+				"y": 9
+			}, {
+				"x": 3,
+				"y": 12
+			}, {
+				"x": 4,
+				"y": 15
+			}, {
+				"x": 5,
+				"y": 18
+			}],
+			[{
+				"x": 0,
+				"y": 0
+			}, {
+				"x": 1,
+				"y": 1
+			}, {
+				"x": 2,
+				"y": 4
+			}, {
+				"x": 3,
+				"y": 7
+			}, {
+				"x": 4,
+				"y": 10
+			}, {
+				"x": 5,
+				"y": 13
+			}]]
+		})
+	}
+
+	handleWeek = async () => {
+		this.setState({
+			data: [[{
+				"x": 0,
+				"y": 0
+			}, {
+				"x": 1,
+				"y": 12
+			}, {
+				"x": 2,
+				"y": 24
+			}, {
+				"x": 3,
+				"y": 12
+			}, {
+				"x": 4,
+				"y": 22
+			}, {
+				"x": 5,
+				"y": 24
+			}],
+			[{
+				"x": 0,
+				"y": 0
+			}, {
+				"x": 1,
+				"y": 5
+			}, {
+				"x": 2,
+				"y": 16
+			}, {
+				"x": 3,
+				"y": 23
+			}, {
+				"x": 4,
+				"y": 16
+			}, {
+				"x": 5,
+				"y": 1
+			}]]
+		})
+	}
 
 	render() {
 		const { navigate } = this.props.navigation;
-		let data = [
-			[{
-				"x": -10,
-				"y": -1000
-			}, {
-				"x": -9,
-				"y": -729
-			}, {
-				"x": -8,
-				"y": -512
-			}, {
-				"x": -7,
-				"y": -343
-			}, {
-				"x": -6,
-				"y": -216
-			}, {
-				"x": -5,
-				"y": -125
-			}, {
-				"x": -4,
-				"y": -64
-			}, {
-				"x": -3,
-				"y": -27
-			}, {
-				"x": -2,
-				"y": -8
-			}, {
-				"x": -1,
-				"y": -1
-			}, {
-				"x": 0,
-				"y": 0
-			}, {
-				"x": 1,
-				"y": 1
-			}, {
-				"x": 2,
-				"y": 8
-			}, {
-				"x": 3,
-				"y": 27
-			}, {
-				"x": 4,
-				"y": 64
-			}, {
-				"x": 5,
-				"y": 125
-			}, {
-				"x": 6,
-				"y": 216
-			}, {
-				"x": 7,
-				"y": 343
-			}, {
-				"x": 8,
-				"y": 512
-			}, {
-				"x": 9,
-				"y": 729
-			}, {
-				"x": 10,
-				"y": 1000
-			}],
-			[{
-				"x": -10,
-				"y": 100
-			}, {
-				"x": -9,
-				"y": 81
-			}, {
-				"x": -8,
-				"y": 64
-			}, {
-				"x": -7,
-				"y": 49
-			}, {
-				"x": -6,
-				"y": 36
-			}, {
-				"x": -5,
-				"y": 25
-			}, {
-				"x": -4,
-				"y": 16
-			}, {
-				"x": -3,
-				"y": 9
-			}, {
-				"x": -2,
-				"y": 4
-			}, {
-				"x": -1,
-				"y": 1
-			}, {
-				"x": 0,
-				"y": 0
-			}, {
-				"x": 1,
-				"y": 1
-			}, {
-				"x": 2,
-				"y": 4
-			}, {
-				"x": 3,
-				"y": 9
-			}, {
-				"x": 4,
-				"y": 16
-			}, {
-				"x": 5,
-				"y": 25
-			}, {
-				"x": 6,
-				"y": 36
-			}, {
-				"x": 7,
-				"y": 49
-			}, {
-				"x": 8,
-				"y": 64
-			}, {
-				"x": 9,
-				"y": 81
-			}, {
-				"x": 10,
-				"y": 100
-			}]
-		]
+		const { data } = this.state;
+
 		let options = {
 			width: 280,
 			height: 280,
@@ -171,7 +175,7 @@ export default class RankingScreen extends React.Component {
 			},
 			axisX: {
 				showAxis: true,
-				showLines: true,
+				showLines: false,
 				showLabels: true,
 				showTicks: true,
 				zeroAxis: false,
@@ -185,7 +189,7 @@ export default class RankingScreen extends React.Component {
 			},
 			axisY: {
 				showAxis: true,
-				showLines: true,
+				showLines: false,
 				showLabels: true,
 				showTicks: true,
 				zeroAxis: false,
@@ -214,8 +218,24 @@ export default class RankingScreen extends React.Component {
 					</View>
 				</View>
 				<View style={styles.container}>
-					<ScrollView>
-						<SmoothLine data={data} options={options} xKey='x' yKey='y' />
+					<ScrollView >
+						<View style={styles.col}>
+							<View style={styles.row}>
+								<SmoothLine data={data} options={options} xKey='x' yKey='y' />
+							</View>
+						</View>
+						<View style={[styles.row, { justifyContent: "center" }]}>
+							<View style={[styles.col, { marginRight: 15 }]}>
+								<TouchableOpacity onPress={this.handleWeek}>
+									<Icon name={"calendar"} size={45} color={Colors.orange} />
+								</TouchableOpacity>
+							</View>
+							<View style={[styles.col, { marginLeft: 15 }]}>
+								<TouchableOpacity onPress={this.handleMonth}>
+									<Icon name={"calendar-multiple"} size={45} color={Colors.darkBlue} />
+								</TouchableOpacity>
+							</View>
+						</View>
 					</ScrollView>
 				</View>
 			</BackgroundImage>
@@ -262,20 +282,8 @@ const styles = StyleSheet.create({
 		width: '70%',
 		borderBottomWidth: 4,
 	},
-	playLayout: {
-		width: 150,
-		height: 150
-	},
-	btnLayout: {
-		borderColor: '#ffffff',
-		borderWidth: 2,
-		backgroundColor: Colors.darkBlue,
-		alignItems: 'center',
-		padding: 5,
-		height: 75,
-	},
 	text: {
-		color: '#fff',
+		color: Colors.darkBlue,
 		fontSize: 16
 	},
 	col: {
