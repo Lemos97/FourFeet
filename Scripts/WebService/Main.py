@@ -39,16 +39,16 @@ def colors():
     exc_level = request.args.get('level', type=int)
     progressive = request.args.get('progressive')
     infinite = request.args.get('infinite')
-    # ip:5000/exercise?difficulty=rookie%level=1(2,3) ||
+    # ip:5000/exercise?difficulty=rookie&level=1(2,3) ||
     # ip:5000/exercise?difficulty=intermediate&level=1(2,3) ||
     # ip:5000/exercise?difficulty=advanced&level=1(2,3)
     if exc_pattern:
         if exc_pattern == 'rookie':
-            return jsonify(rookie(exc_level if not None else 1))
+            return jsonify(rookie(exc_level if not None else 0))
         elif exc_pattern == 'intermediate':
-            return jsonify(intermediate(exc_level if not None else 1))()
+            return jsonify(intermediate(exc_level if not None else 0))()
         elif exc_pattern == 'advanced':
-            return jsonify(advanced(exc_level if not None else 1))
+            return jsonify(advanced(exc_level if not None else 0))
 
     # ip:5000/exercise?progressive=yes || ip:5000/exercise?progressive=Yes
     if progressive:

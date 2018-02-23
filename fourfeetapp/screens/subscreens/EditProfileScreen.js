@@ -37,6 +37,7 @@ export default class EditProfileScreen extends React.Component {
 
 		await navigate('Profile', { profileData: data });
 	}
+
 	render() {
 		const { goBack, state } = this.props.navigation;
 

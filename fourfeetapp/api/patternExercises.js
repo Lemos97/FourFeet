@@ -37,11 +37,6 @@ export async function individualExercise({ difficulty, level }) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            // body: JSON.stringify({
-            //     Name: name,
-            //     Age: age,
-            //     PredominantSide: side
-            // }),
             credentials: 'same-origin'
         });
 

@@ -34,11 +34,12 @@ export default class PlayScreen extends React.Component {
 
 	handleProgressive = async () => {
 		this.setState({ ongoingModal: true });
-		// const resp = await progressiveExercise({ progressive: "yes" })
+		const resp = await progressiveExercise({ progressive: "yes" })
 
-		// if (resp.isSuccess) {
-		//     this.setState({ ongoingModal: false });
-		// }
+		if (resp.isSuccess) {
+			this.setState({ ongoingModal: false });
+		}
+
 		setTimeout(() => {
 			this.setState({ ongoingModal: false });
 		}, 2000)
@@ -46,6 +47,11 @@ export default class PlayScreen extends React.Component {
 
 	handleSelectClick = async () => {
 		this.setState({ selectorModal: true });
+		const resp = await individualExercise({ difficulty: 'advanced', level: 3 })
+
+		if (resp.isSuccess) {
+			this.setState({ selectorModal: false });
+		}
 
 		setTimeout(() => {
 			this.setState({ selectorModal: false });
@@ -53,7 +59,6 @@ export default class PlayScreen extends React.Component {
 	}
 
 	componentDidUpdate(_, prevState) {
-
 		if (this.state.ongoingModal != prevState.ongoingModal) {
 			Alert.alert(
 				'Exercicio a decorrer',
