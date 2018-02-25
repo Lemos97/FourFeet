@@ -268,8 +268,4 @@ if __name__ == '__main__':
         for i in range(1, 5):
             turn_off(strips['strip' + str(i)])
             pi.stop()
-    except Exception as ex:
-        for i in range(1, 5):
-            turn_off(strips['strip' + str(i)])
-            pi.stop()
 

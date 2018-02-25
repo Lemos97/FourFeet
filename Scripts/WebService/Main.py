@@ -12,10 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    try:
-        return json.dumps(welcome_pattern())
-    except ConnectionError:
-        return 404
+    return json.dumps(welcome_pattern())
 
 
 @app.route('/login', methods=['GET'])
