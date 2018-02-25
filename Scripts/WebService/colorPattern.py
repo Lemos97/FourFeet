@@ -72,79 +72,97 @@ def random_color_random_strip(sleep):
                 time.sleep(sleep)
                 turn_off(s['strip'])
                 done_strips.append(s)
-    except KeyboardInterrupt:
+    except Exception as ex:
         for i in range(1, 5):
-            turn_off(strips['strip'+str(i)])
+            turn_off(strips['strip' + str(i)])
             pi.stop()
 
 
 def rookie(level):
-    if level != 0:
-        if level == 1:
+    try:
+        if level != 0:
+            if level == 1:
+                for i in range(0, 10):
+                    random_color_random_strip(2.5)
+            elif level == 2:
+                for i in range(0, 10):
+                    random_color_random_strip(2.2)
+            elif level == 3:
+                for i in range(0, 10):
+                    random_color_random_strip(2)
+        else:
             for i in range(0, 10):
                 random_color_random_strip(2.5)
-        elif level == 2:
+            time.sleep(2)
             for i in range(0, 10):
                 random_color_random_strip(2.2)
-        elif level == 3:
+            time.sleep(2)
             for i in range(0, 10):
                 random_color_random_strip(2)
-    else:
-        for i in range(0, 10):
-            random_color_random_strip(2.5)
-        time.sleep(2)
-        for i in range(0, 10):
-            random_color_random_strip(2.2)
-        time.sleep(2)
-        for i in range(0, 10):
-            random_color_random_strip(2)
-    return {'response': 'Rookie level ended'}
+        return {'response': 'Rookie level ended'}
+    except Exception as ex:
+        for i in range(1, 5):
+            turn_off(strips['strip' + str(i)])
+            pi.stop()
+        return {'response': 'Error : '+str(ex)}
 
 
 def intermediate(level):
-    if level != 0:
-        if level == 1:
+    try:
+        if level != 0:
+            if level == 1:
+                for i in range(0, 10):
+                    random_color_random_strip(1.5)
+            elif level == 2:
+                for i in range(0, 10):
+                    random_color_random_strip(1.2)
+            elif level == 3:
+                for i in range(0, 10):
+                    random_color_random_strip(1)
+        else:
             for i in range(0, 10):
                 random_color_random_strip(1.5)
-        elif level == 2:
+            time.sleep(2)
             for i in range(0, 10):
                 random_color_random_strip(1.2)
-        elif level == 3:
+            time.sleep(2)
             for i in range(0, 10):
                 random_color_random_strip(1)
-    else:
-        for i in range(0, 10):
-            random_color_random_strip(1.5)
-        time.sleep(2)
-        for i in range(0, 10):
-            random_color_random_strip(1.2)
-        time.sleep(2)
-        for i in range(0, 10):
-            random_color_random_strip(1)
-    return {'response': 'Intermediate level ended'}
+        return {'response': 'Intermediate level ended'}
+    except Exception as ex:
+        for i in range(1, 5):
+            turn_off(strips['strip' + str(i)])
+            pi.stop()
+        return {'response': 'Error : ' + str(ex)}
 
 
 def advanced(level):
-    if level != 0:
-        if level == 1:
+    try:
+        if level != 0:
+            if level == 1:
+                for i in range(0, 10):
+                    random_color_random_strip(float(.5))
+            elif level == 2:
+                for i in range(0, 10):
+                    random_color_random_strip(float(.4))
+            elif level == 3:
+                for i in range(0, 10):
+                    random_color_random_strip(float(.3))
+        else:
             for i in range(0, 10):
                 random_color_random_strip(float(.5))
-        elif level == 2:
+            time.sleep(2)
             for i in range(0, 10):
                 random_color_random_strip(float(.4))
-        elif level == 3:
+            time.sleep(2)
             for i in range(0, 10):
                 random_color_random_strip(float(.3))
-    else:
-        for i in range(0, 10):
-            random_color_random_strip(float(.5))
-        time.sleep(2)
-        for i in range(0, 10):
-            random_color_random_strip(float(.4))
-        time.sleep(2)
-        for i in range(0, 10):
-            random_color_random_strip(float(.3))
-    return {'response': 'Advanced level ended'}
+        return {'response': 'Advanced level ended'}
+    except Exception as ex:
+        for i in range(1, 5):
+            turn_off(strips['strip' + str(i)])
+            pi.stop()
+        return {'response': 'Error : ' + str(ex)}
 
 
 def loop():
@@ -153,25 +171,32 @@ def loop():
 
 
 def welcome_pattern():
-    for i in range(0, 4):
-        pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), choice(random_color()))
-        pi.set_PWM_dutycycle(int(strips['strip2'].get('R')), choice(random_color()))
-        pi.set_PWM_dutycycle(int(strips['strip3'].get('R')), choice(random_color()))
-        pi.set_PWM_dutycycle(int(strips['strip4'].get('R')), choice(random_color()))
+    try:
+        for i in range(0, 4):
+            pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip2'].get('R')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip3'].get('R')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip4'].get('R')), choice(random_color()))
 
-        pi.set_PWM_dutycycle(int(strips['strip1'].get('G')), choice(random_color()))
-        pi.set_PWM_dutycycle(int(strips['strip2'].get('G')), choice(random_color()))
-        pi.set_PWM_dutycycle(int(strips['strip3'].get('G')), choice(random_color()))
-        pi.set_PWM_dutycycle(int(strips['strip4'].get('G')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip1'].get('G')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip2'].get('G')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip3'].get('G')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip4'].get('G')), choice(random_color()))
 
-        pi.set_PWM_dutycycle(int(strips['strip1'].get('B')), choice(random_color()))
-        pi.set_PWM_dutycycle(int(strips['strip2'].get('B')), choice(random_color()))
-        pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), choice(random_color()))
-        pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), choice(random_color()))
-        time.sleep(.5)
-    for i in range(1, 5):
-        turn_off(strips['strip' + str(i)])
-    return {'response': 'Welcome'}
+            pi.set_PWM_dutycycle(int(strips['strip1'].get('B')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip2'].get('B')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), choice(random_color()))
+            pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), choice(random_color()))
+            time.sleep(.5)
+        for j in range(1, 5):
+            turn_off(strips['strip' + str(j)])
+            pi.stop()
+        return {'response': 'Welcome'}
+    except Exception as ex:
+        for i in range(1, 5):
+            turn_off(strips['strip' + str(i)])
+            pi.stop()
+        return {'response': 'Error : ' + str(ex)}
 
 
 def turn_off(strip):
@@ -243,4 +268,14 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        for i in range(1, 5):
+            turn_off(strips['strip' + str(i)])
+            pi.stop()
+    except Exception as ex:
+        for i in range(1, 5):
+            turn_off(strips['strip' + str(i)])
+            pi.stop()
+
