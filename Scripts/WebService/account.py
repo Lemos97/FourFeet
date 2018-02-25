@@ -21,7 +21,7 @@ def make_register(name, age, gender, predominant_side):
         account = {
             'name': name,
             'age': age,
-            'gender':gender,
+            'gender': gender,
             'predominant_side': predominant_side,
             'register_date': str(datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S'))
         }
