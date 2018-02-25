@@ -171,32 +171,26 @@ def loop():
 
 
 def welcome_pattern():
-    try:
-        for i in range(0, 4):
-            pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), choice(random_color()))
-            pi.set_PWM_dutycycle(int(strips['strip2'].get('R')), choice(random_color()))
-            pi.set_PWM_dutycycle(int(strips['strip3'].get('R')), choice(random_color()))
-            pi.set_PWM_dutycycle(int(strips['strip4'].get('R')), choice(random_color()))
+    for i in range(0, 4):
+        pi.set_PWM_dutycycle(int(strips['strip1'].get('R')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip2'].get('R')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip3'].get('R')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip4'].get('R')), choice(random_color()))
 
-            pi.set_PWM_dutycycle(int(strips['strip1'].get('G')), choice(random_color()))
-            pi.set_PWM_dutycycle(int(strips['strip2'].get('G')), choice(random_color()))
-            pi.set_PWM_dutycycle(int(strips['strip3'].get('G')), choice(random_color()))
-            pi.set_PWM_dutycycle(int(strips['strip4'].get('G')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip1'].get('G')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip2'].get('G')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip3'].get('G')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip4'].get('G')), choice(random_color()))
 
-            pi.set_PWM_dutycycle(int(strips['strip1'].get('B')), choice(random_color()))
-            pi.set_PWM_dutycycle(int(strips['strip2'].get('B')), choice(random_color()))
-            pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), choice(random_color()))
-            pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), choice(random_color()))
-            time.sleep(.5)
-        for j in range(1, 5):
-            turn_off(strips['strip' + str(j)])
-            pi.stop()
-        return {'response': 'Welcome'}
-    except Exception as ex:
-        for i in range(1, 5):
-            turn_off(strips['strip' + str(i)])
-            pi.stop()
-        return {'response': 'Error : ' + str(ex)}
+        pi.set_PWM_dutycycle(int(strips['strip1'].get('B')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip2'].get('B')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), choice(random_color()))
+        pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), choice(random_color()))
+        time.sleep(.5)
+    for j in range(1, 5):
+        turn_off(strips['strip' + str(j)])
+        pi.stop()
+    return {'response': 'Welcome'}
 
 
 def turn_off(strip):
