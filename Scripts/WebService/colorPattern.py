@@ -39,8 +39,10 @@ def random_color():
     for r in range(0, 15):
         x = randint(0, 256)
         if x > 255:
+            print("ups maior que 255", x)
             x = 255
         if x < 0:
+            print("ups menor que 0", x)
             x = 0
         colors.append(x)
     return colors

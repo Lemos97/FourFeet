@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify
 import time
 import json
-from colorPattern import rookie, intermediate, advanced, loop, welcome_pattern
+from colorPattern import rookie, intermediate, advanced, loop, welcome_pattern, turn_off
 from account import check_if_account, make_register
 
 # from thread import start_new_thread
@@ -15,6 +15,7 @@ def home():
     try:
         return json.dumps(welcome_pattern())
     except ConnectionError:
+        turn_off()
         return 404
 
 
@@ -66,7 +67,7 @@ def colors():
     if infinite:
         if infinite == 'yes' or infinite == 'Yes':
             loop()
-
+    turn_off()
     return 404
 
 
