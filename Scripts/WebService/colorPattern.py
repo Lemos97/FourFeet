@@ -79,7 +79,7 @@ def random_color_random_strip(sleep):
 
 
 def rookie(level):
-    if type(level) is int or level != 0:
+    if level != 0:
         if level == 1:
             for i in range(0, 10):
                 random_color_random_strip(2.5)
@@ -102,7 +102,7 @@ def rookie(level):
 
 
 def intermediate(level):
-    if type(level) is int or level != 0:
+    if level != 0:
         if level == 1:
             for i in range(0, 10):
                 random_color_random_strip(1.5)
@@ -125,7 +125,7 @@ def intermediate(level):
 
 
 def advanced(level):
-    if type(level) is int or level != 0:
+    if level != 0:
         if level == 1:
             for i in range(0, 10):
                 random_color_random_strip(float(.5))

@@ -56,11 +56,11 @@ def colors():
     # ip:5000/exercise?progressive=yes || ip:5000/exercise?progressive=Yes
     if progressive:
         if progressive == 'yes' or progressive == 'Yes':
-            rookie(None)
+            rookie(0)
             time.sleep(5)
-            intermediate(None)
+            intermediate(0)
             time.sleep(7)
-            advanced(None)
+            advanced(0)
             return jsonify({'response': 'Progressive mode ended.'})
 
     if infinite:
