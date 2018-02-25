@@ -187,9 +187,8 @@ def welcome_pattern():
         pi.set_PWM_dutycycle(int(strips['strip3'].get('B')), choice(random_color()))
         pi.set_PWM_dutycycle(int(strips['strip4'].get('B')), choice(random_color()))
         time.sleep(.5)
-    for j in range(1, 5):
-        turn_off(strips['strip' + str(j)])
-        pi.stop()
+    for i in range(1, 5):
+        turn_off(strips['strip' + str(i)])
     return {'response': 'Welcome'}
 
 
