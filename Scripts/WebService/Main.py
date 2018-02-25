@@ -66,8 +66,9 @@ def colors():
 
     return 404
 
+
 def main():
-	app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0")
 
 
 if __name__ == "__main__":

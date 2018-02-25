@@ -171,6 +171,7 @@ def welcome_pattern():
         time.sleep(.5)
     for i in range(1, 5):
         turn_off(strips['strip' + str(i)])
+    return {'response': 'Welcome'}
 
 
 def turn_off(strip):
