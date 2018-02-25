@@ -14,8 +14,7 @@ app = Flask(__name__)
 def home():
     try:
         return json.dumps(welcome_pattern())
-    except Exception as ex:
-        turn_off()
+    except ConnectionError:
         return 404
 
 
